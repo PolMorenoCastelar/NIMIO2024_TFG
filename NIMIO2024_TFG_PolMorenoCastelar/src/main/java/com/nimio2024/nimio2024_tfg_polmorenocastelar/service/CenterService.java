@@ -1,6 +1,7 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.service;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
+import org.springframework.stereotype.Component;
 
 
 import java.util.List;

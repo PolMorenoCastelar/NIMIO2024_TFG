@@ -8,12 +8,16 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CenterService;
 
 import java.util.List;
 
-@RequestMapping("/centers")
+
 @RestController
+@RequestMapping("/centers")
 public class CenterRestController{
 
-    @Autowired
-    CenterService centerService;
+    private CenterService centerService;
+
+    public CenterRestController(CenterService centerService){
+        this.centerService = centerService;
+    }
 
     @GetMapping("")
     public List<Center> getCenters(){

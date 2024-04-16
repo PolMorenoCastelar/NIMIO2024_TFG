@@ -1,17 +1,23 @@
-package com.nimio2024.nimio2024_tfg_polmorenocastelar.service;
+package com.nimio2024.nimio2024_tfg_polmorenocastelar.aplication;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CenterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.persistence.CenterRepository;
 
 import java.util.List;
 
 @Service
-public class CenterServiceImpl implements CenterService{
+public class CenterServiceImpl implements CenterService {
 
-    @Autowired
     CenterRepository centerRepository;
+
+    public CenterServiceImpl(CenterRepository centerRepository){
+
+        this.centerRepository = centerRepository;
+    }
 
     @Override
     public List<Center> getCenters() {
