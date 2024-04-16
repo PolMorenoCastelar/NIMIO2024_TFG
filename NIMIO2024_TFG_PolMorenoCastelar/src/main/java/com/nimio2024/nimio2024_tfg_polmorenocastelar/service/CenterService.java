@@ -1,6 +1,6 @@
-package service;
+package com.nimio2024.nimio2024_tfg_polmorenocastelar.service;
 
-import domain.Center;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
 
 
 import java.util.List;

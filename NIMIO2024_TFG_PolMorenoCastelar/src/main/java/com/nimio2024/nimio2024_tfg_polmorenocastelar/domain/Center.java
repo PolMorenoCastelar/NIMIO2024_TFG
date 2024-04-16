@@ -1,4 +1,4 @@
-package domain;
+package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
 
 import javax.persistence.*;
@@ -11,11 +11,13 @@ public class Center {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long centerId;
 
+    @Column(name = "centerName")
     private String centerName;
+
+
 
     public Center() {
     }
-
     public Long getCenterId() {
         return centerId;
     }

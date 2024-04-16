@@ -1,10 +1,10 @@
-package aplication.dto;
+package com.nimio2024.nimio2024_tfg_polmorenocastelar.api;
 
-import domain.Center;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.CenterService;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CenterService;
 
 import java.util.List;
 
@@ -12,11 +12,8 @@ import java.util.List;
 @RestController
 public class CenterRestController{
 
+    @Autowired
     CenterService centerService;
-
-    public CenterRestController(CenterService centerService){
-        this.centerService = centerService;
-    }
 
     @GetMapping("")
     public List<Center> getCenters(){
