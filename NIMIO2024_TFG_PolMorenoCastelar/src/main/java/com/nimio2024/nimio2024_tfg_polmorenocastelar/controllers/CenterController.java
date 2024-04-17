@@ -25,4 +25,10 @@ public class CenterController {
         Center center = new Center(centerDTO);
         return centerService.saveCenter(center);
     }
+
+    public Center updateCenter(Long centerId, CenterDTO centerDTO) {
+        Center center = centerService.getCenterById(centerId);
+        center.setCenterName(centerDTO.getCenterName());
+        return centerService.saveCenter(center);
+    }
 }

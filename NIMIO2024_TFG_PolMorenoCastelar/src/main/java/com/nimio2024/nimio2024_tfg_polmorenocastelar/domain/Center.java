@@ -22,13 +22,22 @@ public class Center {
 
     public Center() {
     }
-    public Center (String centerName) {
+    public Center (String centerName, List<School> schoolList){
         this.center_name = centerName;
+        this.schoolList = schoolList;
     }
     public Center (CenterDTO centerDTO){
         this.center_name = centerDTO.getCenterName();
+        this.schoolList = centerDTO.getSchoolList();
     }
 
+    public Center(String centerName) {
+        this.center_name = centerName;
+    }
+
+    public List<School> getSchoolList() {
+        return schoolList;
+    }
 
     public String getCenterName() {
         return center_name;
@@ -37,4 +46,6 @@ public class Center {
     public void setCenterName(String centerName) {
         this.center_name = centerName;
     }
+
+
 }
