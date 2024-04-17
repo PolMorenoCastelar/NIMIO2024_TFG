@@ -36,4 +36,8 @@ public class CenterController {
     public List<School> getSchoolsByCenter(Long centerId) {
         return centerService.getSchoolsByCenterId(centerId);
     }
+
+    public void deleteCenter(Long centerId) {
+        centerService.deleteCenter(centerId);
+    }
 }

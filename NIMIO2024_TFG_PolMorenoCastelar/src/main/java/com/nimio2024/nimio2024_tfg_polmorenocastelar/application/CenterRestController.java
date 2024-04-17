@@ -41,5 +41,10 @@ public class CenterRestController {
 
     }
 
+    @DeleteMapping("/{centerId}")
+    public void deleteCenter(@PathVariable Long centerId) {
+        centerController.deleteCenter(centerId);
+    }
+
 
 }
