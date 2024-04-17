@@ -5,24 +5,24 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
 public class SchoolDTO {
 
     private String schoolName;
-    private Float schoolLocationLatitude;
-    private Float schoolLocationLongitude;
+    private Float school_location_latitude;
+    private Float school_location_longitude;
     private final CenterDTO center;
 
     // Constructor
     public SchoolDTO() {
         this.center = new CenterDTO();
     }
-    public SchoolDTO(String schoolName, Float schoolLocationLatitude, Float schoolLocationLongitude, CenterDTO centerDTO) {
+    public SchoolDTO(String schoolName, Float school_location_latitude, Float school_location, CenterDTO centerDTO) {
         this.schoolName = schoolName;
-        this.schoolLocationLatitude = schoolLocationLatitude;
-        this.schoolLocationLongitude = schoolLocationLongitude;
+        this.school_location_latitude = school_location_latitude;
+        this.school_location_longitude = school_location;
         this.center = centerDTO;
     }
     public SchoolDTO(School school){
         this.schoolName = school.getSchoolName();
-        this.schoolLocationLatitude = school.getSchoolLocationLatitude();
-        this.schoolLocationLongitude = school.getSchoolLocationLongitude();
+        this.school_location_latitude = school.getSchoolLocationLatitude();
+        this.school_location_longitude = school.getSchoolLocationLongitude();
         this.center = new CenterDTO(school.getCenter());
     }
 
@@ -34,20 +34,20 @@ public class SchoolDTO {
         this.schoolName = schoolName;
     }
 
-    public Float getSchoolLocationLatitude() {
-        return schoolLocationLatitude;
+    public Float getSchool_location_latitude() {
+        return school_location_latitude;
     }
 
-    public void setSchoolLocationLatitude(Float schoolLocationLatitude) {
-        this.schoolLocationLatitude = schoolLocationLatitude;
+    public void setSchool_location_latitude(Float school_location_latitude) {
+        this.school_location_latitude = school_location_latitude;
     }
 
-    public Float getSchoolLocationLongitude() {
-        return schoolLocationLongitude;
+    public Float getSchool_location_longitude() {
+        return school_location_longitude;
     }
 
-    public void setSchoolLocationLongitude(Float schoolLocationLongitude) {
-        this.schoolLocationLongitude = schoolLocationLongitude;
+    public void setSchool_location_longitude(Float school_location_longitude) {
+        this.school_location_longitude = school_location_longitude;
     }
 
     public CenterDTO getCenter() {

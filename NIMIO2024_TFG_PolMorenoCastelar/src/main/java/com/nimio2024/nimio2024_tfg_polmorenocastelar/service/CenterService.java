@@ -1,6 +1,7 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.service;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.persistence.CenterRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,13 @@ public class CenterService {
     public void deleteCenter(Long id) {
         centerRepository.deleteById(id);
 
+    }
+
+    public List<School> getSchoolsByCenterId(Long centerId) {
+        Center center = centerRepository.findById(centerId).orElse(null);
+        if(center == null){
+            return null;
+        }
+        return center.getSchoolList();
     }
 }

@@ -2,6 +2,7 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.CenterDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CenterService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -30,5 +31,9 @@ public class CenterController {
         Center center = centerService.getCenterById(centerId);
         center.setCenterName(centerDTO.getCenterName());
         return centerService.saveCenter(center);
+    }
+
+    public List<School> getSchoolsByCenter(Long centerId) {
+        return centerService.getSchoolsByCenterId(centerId);
     }
 }

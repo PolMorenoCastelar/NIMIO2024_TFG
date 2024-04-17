@@ -2,9 +2,6 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.SchoolDTO;
 import jakarta.persistence.*;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
-
-import java.util.UUID;
 
 @Entity
 @Table(name = "school")
@@ -24,8 +21,9 @@ public class School {
     private Float schoolLocationLongitude;
 
     //TODO : courses list to add here
+
     @ManyToOne
-    @JoinColumn(name = "fk_center_id")
+    @JoinColumn(name = "center_uuid")
     private Center center;
 
     public School() {
@@ -40,8 +38,8 @@ public class School {
 
     public School(SchoolDTO schoolDTO){
         this.schoolName = schoolDTO.getSchoolName();
-        this.schoolLocationLatitude = schoolDTO.getSchoolLocationLatitude();
-        this.schoolLocationLongitude = schoolDTO.getSchoolLocationLongitude();
+        this.schoolLocationLatitude = schoolDTO.getSchool_location_latitude();
+        this.schoolLocationLongitude = schoolDTO.getSchool_location_longitude();
         this.center = new Center(schoolDTO.getCenter());
     }
 

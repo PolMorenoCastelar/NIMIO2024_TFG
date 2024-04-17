@@ -11,13 +11,13 @@ public class Center {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long centerId;
+    private Long center_id;
 
     @Column(name = "center_name")
     private String center_name;
 
-    @Column(name="school_list")
-    @OneToMany(mappedBy = "schoolId")
+
+    @OneToMany(mappedBy = "center")
     private List<School> schoolList;
 
     public Center() {
