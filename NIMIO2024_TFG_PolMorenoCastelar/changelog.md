@@ -13,3 +13,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - [NPP-1] 》Create Spring Project 
+- [NPP-3] 》Architecture configuration & First Classes Testing

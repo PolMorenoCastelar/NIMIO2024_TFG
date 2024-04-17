@@ -1,21 +1,42 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.service;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
-import org.springframework.stereotype.Component;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.persistence.CenterRepository;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
-
+import java.net.http.HttpResponse;
 import java.util.List;
 
+@Service
+public class CenterService {
 
-public interface CenterService {
+    CenterRepository centerRepository;
 
-    public List<Center> getCenters();
+    public CenterService(CenterRepository centerRepository) {
+        this.centerRepository = centerRepository;
+    }
 
-    public Center createCenter(Center center);
+    public ResponseEntity<List<Center>> getAllCenters() {
+        if(centerRepository.findAll().isEmpty()){
+            ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(centerRepository.findAll());
+    }
 
-    public Center getCenter(Long centerId);
 
-    public void deleteCenter(Long centerId);
+    public Center getCenterById(Long id) {
+        return centerRepository.findById(id).orElse(null);
+    }
 
 
+    public Center saveCenter(Center center) {
+        return centerRepository.save(center);
+    }
+
+
+    public void deleteCenter(Long id) {
+        centerRepository.deleteById(id);
+
+    }
 }
