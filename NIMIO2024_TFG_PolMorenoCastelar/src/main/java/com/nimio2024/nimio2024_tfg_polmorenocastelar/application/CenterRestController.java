@@ -20,6 +20,7 @@ public class CenterRestController {
 
     @GetMapping("")
     public ResponseEntity<List<Center>> getAllCenters() {
+
         return centerController.getAllCenters();
     }
 
