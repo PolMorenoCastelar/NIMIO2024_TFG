@@ -36,7 +36,9 @@ public class CenterRestController {
 
     @PutMapping("/{centerId}")
     public Center updateCenter(@PathVariable Long centerId, @RequestBody CenterDTO centerDTO) {
+
         return centerController.updateCenter(centerId, centerDTO);
+
     }
 
 

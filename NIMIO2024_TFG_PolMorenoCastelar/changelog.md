@@ -17,3 +17,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-9] 》CE1F - Create a Center and edit its Name
 - [NPP-10] 》CE2F - Obtain the list of schools of a center
 - [NPP-11] 》CE3F - Get all centers registered in the system
+- [NPP-12] 》CE4F - Edit a Center by ID
