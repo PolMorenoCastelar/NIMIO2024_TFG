@@ -1,5 +1,7 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
 
 public class SchoolDTO {
@@ -7,23 +9,23 @@ public class SchoolDTO {
     private String schoolName;
     private Float school_location_latitude;
     private Float school_location_longitude;
-    private final CenterDTO center;
 
-    // Constructor
-    public SchoolDTO() {
-        this.center = new CenterDTO();
+    private Center center;
+
+    public SchoolDTO(){
+
     }
-    public SchoolDTO(String schoolName, Float school_location_latitude, Float school_location, CenterDTO centerDTO) {
+    public SchoolDTO(String schoolName, Float school_location_latitude, Float school_location,Center center) {
         this.schoolName = schoolName;
         this.school_location_latitude = school_location_latitude;
         this.school_location_longitude = school_location;
-        this.center = centerDTO;
+        this.center = center;
     }
     public SchoolDTO(School school){
         this.schoolName = school.getSchoolName();
         this.school_location_latitude = school.getSchoolLocationLatitude();
         this.school_location_longitude = school.getSchoolLocationLongitude();
-        this.center = new CenterDTO(school.getCenter());
+        this.center = school.getCenter();
     }
 
     public String getSchoolName() {
@@ -50,8 +52,8 @@ public class SchoolDTO {
         this.school_location_longitude = school_location_longitude;
     }
 
-    public CenterDTO getCenter() {
-        return this.center;
+    public Center getCenter() {
+        return center;
     }
 }
 

@@ -1,5 +1,7 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,7 +19,7 @@ public class Course {
     //private List<Student> studentList;
     //TODO: Add studentList
     @ManyToOne
-    @JoinColumn(name = "school_id")
+    @JoinColumn(name = "fk_school_id")
     private School school;
 
     public Course() {

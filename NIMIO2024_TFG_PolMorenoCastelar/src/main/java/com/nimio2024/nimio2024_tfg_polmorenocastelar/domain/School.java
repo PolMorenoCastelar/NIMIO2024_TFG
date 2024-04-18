@@ -1,5 +1,8 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.SchoolDTO;
 import jakarta.persistence.*;
 
@@ -22,13 +25,9 @@ public class School {
     @Column(name = "school_location_longitude")
     private Float schoolLocationLongitude;
 
-    //TODO : courses list to add her
-
-    @Column(name = "fk_center_id")
-    private Long centerId;
-
     @ManyToOne
-    @JoinColumn(name = "center_uuid")
+    @JoinColumn(name = "center")
+    @JsonBackReference
     private Center center;
 
     @OneToMany(mappedBy = "school")
@@ -48,8 +47,10 @@ public class School {
         this.schoolName = schoolDTO.getSchoolName();
         this.schoolLocationLatitude = schoolDTO.getSchool_location_latitude();
         this.schoolLocationLongitude = schoolDTO.getSchool_location_longitude();
-        this.center = new Center(schoolDTO.getCenter());
+        this.center = schoolDTO.getCenter();
     }
+
+
 
     public String getSchoolName() {
         return schoolName;

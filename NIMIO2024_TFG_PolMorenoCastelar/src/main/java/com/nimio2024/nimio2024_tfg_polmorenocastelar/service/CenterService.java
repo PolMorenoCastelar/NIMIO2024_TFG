@@ -48,4 +48,9 @@ public class CenterService {
         }
         return center.getSchoolList();
     }
+
+    public void addSchool(Center center, School school) {
+        center.addSchool(school);
+        centerRepository.save(center);
+    }
 }
