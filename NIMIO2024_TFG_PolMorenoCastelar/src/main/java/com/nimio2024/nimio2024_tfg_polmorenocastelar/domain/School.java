@@ -31,6 +31,7 @@ public class School {
     private Center center;
 
     @OneToMany(mappedBy = "school")
+    @Column(name = "course_list")
     private List<Course> courseList;
 
     public School() {
@@ -82,5 +83,9 @@ public class School {
 
     public void setCenter(Center center) {
         this.center = center;
+    }
+
+    public List<Course> getCourseList() {
+        return courseList;
     }
 }

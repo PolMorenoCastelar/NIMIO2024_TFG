@@ -2,10 +2,13 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.SchoolDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CenterService;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.SchoolService;
 import org.springframework.stereotype.Controller;
+
+import java.util.List;
 
 @Controller
 public class SchoolController {
@@ -28,5 +31,10 @@ public class SchoolController {
 
     public School getSchool(Long schoolId) {
         return schoolService.getSchoolById(schoolId);
+    }
+
+    public List<Course> getSchoolCourses(Long schoolId) {
+        School school = schoolService.getSchoolById(schoolId);
+        return school.getCourseList();
     }
 }

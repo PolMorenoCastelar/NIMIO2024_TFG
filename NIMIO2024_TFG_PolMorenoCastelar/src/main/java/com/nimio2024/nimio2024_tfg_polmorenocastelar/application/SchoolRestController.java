@@ -2,8 +2,11 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.application;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.SchoolDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers.SchoolController;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/schools")
@@ -20,5 +23,10 @@ public class SchoolRestController {
     @GetMapping("/{schoolId}")
     public School getSchool(@PathVariable Long schoolId){
         return schoolController.getSchool(schoolId);
+    }
+
+    @GetMapping("/{schoolId}/courses")
+    public List<Course> getSchoolCourses(@PathVariable Long schoolId){
+        return schoolController.getSchoolCourses(schoolId);
     }
 }
