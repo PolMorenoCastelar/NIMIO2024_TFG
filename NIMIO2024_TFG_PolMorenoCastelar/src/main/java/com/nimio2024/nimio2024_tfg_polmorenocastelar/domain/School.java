@@ -78,6 +78,7 @@ public class School {
     }
 
     public Center getCenter() {
+
         return center;
     }
 
@@ -85,6 +86,10 @@ public class School {
         this.center = center;
     }
 
+
+    public void setCourseList(List<Course> courseList) {
+        this.courseList = courseList;
+    }
     public List<Course> getCourseList() {
         return courseList;
     }

@@ -25,21 +25,13 @@ public class CenterService {
         return ResponseEntity.ok(centerRepository.findAll());
     }
 
-
     public Center getCenterById(Long id) {
         return centerRepository.findById(id).orElse(null);
     }
 
+    public Center saveCenter(Center center) {return centerRepository.save(center);}
 
-    public Center saveCenter(Center center) {
-        return centerRepository.save(center);
-    }
-
-
-    public void deleteCenter(Long id) {
-        centerRepository.deleteById(id);
-
-    }
+    public void deleteCenter(Long id) {centerRepository.deleteById(id);}
 
     public List<School> getSchoolsByCenterId(Long centerId) {
         Center center = centerRepository.findById(centerId).orElse(null);

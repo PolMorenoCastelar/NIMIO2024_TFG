@@ -2,14 +2,17 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
+
+import java.util.List;
 
 public class SchoolDTO {
 
     private String schoolName;
     private Float school_location_latitude;
     private Float school_location_longitude;
-
+    private List<Course> courseList;
     private Center center;
 
     public SchoolDTO(){
@@ -54,6 +57,9 @@ public class SchoolDTO {
 
     public Center getCenter() {
         return center;
+    }
+    public List<Course> getCourseList() {
+        return courseList;
     }
 }
 

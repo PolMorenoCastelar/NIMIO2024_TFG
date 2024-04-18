@@ -37,4 +37,13 @@ public class SchoolController {
         School school = schoolService.getSchoolById(schoolId);
         return school.getCourseList();
     }
+
+    public School updateSchool(Long schoolId, SchoolDTO schoolDTO) {
+        School school = schoolService.getSchoolById(schoolId);
+        school.setSchoolName(schoolDTO.getSchoolName());
+        school.setSchoolLocationLatitude(schoolDTO.getSchool_location_latitude());
+        school.setSchoolLocationLongitude(schoolDTO.getSchool_location_longitude());
+        school.setCourseList(schoolDTO.getCourseList());
+        return schoolService.saveSchool(school);
+    }
 }

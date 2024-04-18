@@ -20,6 +20,7 @@ public class SchoolRestController {
     public School createSchool(@RequestBody SchoolDTO schoolDTO, @PathVariable Long centerId){
        return schoolController.createSchool(schoolDTO, centerId);
     }
+
     @GetMapping("/{schoolId}")
     public School getSchool(@PathVariable Long schoolId){
         return schoolController.getSchool(schoolId);
@@ -28,5 +29,10 @@ public class SchoolRestController {
     @GetMapping("/{schoolId}/courses")
     public List<Course> getSchoolCourses(@PathVariable Long schoolId){
         return schoolController.getSchoolCourses(schoolId);
+    }
+
+    @PutMapping("/{schoolId}")
+    public School updateSchool(@PathVariable Long schoolId, @RequestBody SchoolDTO schoolDTO){
+        return schoolController.updateSchool(schoolId, schoolDTO);
     }
 }
