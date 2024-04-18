@@ -35,4 +35,9 @@ public class SchoolRestController {
     public School updateSchool(@PathVariable Long schoolId, @RequestBody SchoolDTO schoolDTO){
         return schoolController.updateSchool(schoolId, schoolDTO);
     }
+
+    @DeleteMapping("/{schoolId}")
+    public void deleteSchool(@PathVariable Long schoolId){
+        schoolController.deleteSchool(schoolId);
+    }
 }
