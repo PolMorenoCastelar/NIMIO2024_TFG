@@ -3,6 +3,8 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.SchoolDTO;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "school")
 public class School {
@@ -20,11 +22,17 @@ public class School {
     @Column(name = "school_location_longitude")
     private Float schoolLocationLongitude;
 
-    //TODO : courses list to add here
+    //TODO : courses list to add her
+
+    @Column(name = "fk_center_id")
+    private Long centerId;
 
     @ManyToOne
     @JoinColumn(name = "center_uuid")
     private Center center;
+
+    @OneToMany(mappedBy = "school")
+    private List<Course> courseList;
 
     public School() {
     }
