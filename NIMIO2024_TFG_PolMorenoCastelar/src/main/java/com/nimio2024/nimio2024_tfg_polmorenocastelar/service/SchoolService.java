@@ -16,4 +16,8 @@ public class SchoolService {
     public School saveSchool(School school) {
         return schoolRepository.save(school);
     }
+
+    public School getSchoolById(Long schoolId) {
+        return schoolRepository.findById(schoolId).get();
+    }
 }

@@ -17,4 +17,8 @@ public class SchoolRestController {
     public School createSchool(@RequestBody SchoolDTO schoolDTO, @PathVariable Long centerId){
        return schoolController.createSchool(schoolDTO, centerId);
     }
+    @GetMapping("/{schoolId}")
+    public School getSchool(@PathVariable Long schoolId){
+        return schoolController.getSchool(schoolId);
+    }
 }

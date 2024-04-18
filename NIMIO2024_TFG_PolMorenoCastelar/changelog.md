@@ -20,3 +20,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-12] 》CE4F - Edit a Center by ID
 - [NPP-13] 》CE5F - Delete a Center by ID
 - [NPP-14] 》CE6F - Create a school that belongs to a center
+- [NPP-15] 》CE7F - Get school by ID

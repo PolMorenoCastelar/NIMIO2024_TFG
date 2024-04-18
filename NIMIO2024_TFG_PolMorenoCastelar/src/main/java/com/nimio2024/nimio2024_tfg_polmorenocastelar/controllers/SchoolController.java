@@ -25,4 +25,8 @@ public class SchoolController {
         centerService.addSchool(center, school);
         return schoolService.saveSchool(school);
     }
+
+    public School getSchool(Long schoolId) {
+        return schoolService.getSchoolById(schoolId);
+    }
 }

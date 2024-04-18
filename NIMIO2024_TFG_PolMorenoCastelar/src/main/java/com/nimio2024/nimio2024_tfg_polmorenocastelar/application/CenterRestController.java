@@ -23,22 +23,18 @@ public class CenterRestController {
 
         return centerController.getAllCenters();
     }
-
     @GetMapping("/{centerId}/schools")
     public List<School> getSchoolsByCenter(@PathVariable Long centerId) {
         return centerController.getSchoolsByCenter(centerId);
     }
-
     @PostMapping("")
     public Center createCenter(@RequestBody CenterDTO centerDTO) {
         return centerController.createCenter(centerDTO);
     }
-
     @PutMapping("/{centerId}")
     public Center updateCenter(@PathVariable Long centerId, @RequestBody CenterDTO centerDTO) {
         return centerController.updateCenter(centerId, centerDTO);
     }
-
     @DeleteMapping("/{centerId}")
     public void deleteCenter(@PathVariable Long centerId) {
         centerController.deleteCenter(centerId);
