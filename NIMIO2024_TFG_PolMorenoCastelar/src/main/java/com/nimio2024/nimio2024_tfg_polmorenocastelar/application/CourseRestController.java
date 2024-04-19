@@ -1,9 +1,12 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.application;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.CourseDTO;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.StudentDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers.CourseController;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/courses")
@@ -27,6 +30,11 @@ public class CourseRestController {
     @PutMapping("/{courseId}/addStudent/{studentId}")
     public Course addStudentToCourse(@PathVariable Long courseId, @PathVariable Long studentId){
         return courseController.addStudentToCourse(courseId, studentId);
+    }
+
+    @PutMapping("/{courseId}/addStudentList")
+    public Course addStudentListToCourse(@PathVariable Long courseId, @RequestBody List<StudentDTO> studentListDTO){
+        return courseController.addStudentListToCourse(courseId, studentListDTO);
     }
 
     @GetMapping("/{courseId}")

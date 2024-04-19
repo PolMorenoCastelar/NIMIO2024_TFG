@@ -1,6 +1,7 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.CourseDTO;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.StudentDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Student;
@@ -60,5 +61,30 @@ public class CourseController {
             studentService.saveStudent(student);
         }
         courseService.deleteCourse(course);
+    }
+
+    public Course addStudentListToCourse(Long courseId, List<StudentDTO> studentListDTO) {
+        Course course = courseService.getCourseById(courseId);
+        for (StudentDTO studentDTO : studentListDTO) {
+            if(checkStudentExists(studentDTO)){
+                //si existe
+                System.err.println("Student with DNI:"+ studentDTO.getStudentDNI() +"already exists");
+                Student student = studentService.getStudentByDNI(studentDTO.getStudentDNI());
+                studentService.saveStudent(student);
+                if(student.getCourse()!=course){
+                    System.err.println("Student with DNI:"+ studentDTO.getStudentDNI() +" now takes part of this course");
+                    course.addStudent(student);
+                }
+            }else{
+                Student student = new Student(studentDTO);
+                studentService.saveStudent(student);
+                course.addStudent(student);
+            }
+        }
+        return courseService.saveCourse(course);
+    }
+
+    private boolean checkStudentExists(StudentDTO studentDTO) {
+        return studentService.getStudentByDNI(studentDTO.getStudentDNI())!=null;
     }
 }

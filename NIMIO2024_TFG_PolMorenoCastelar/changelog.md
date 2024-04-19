@@ -31,6 +31,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-20] 》CO12F - Edit a course name by courseID
 - [NPP-21] 》CO13F - Add a student to a course with only id's
 - [NPP-23] 》CO15F - Get all students and course details by courseID
+- [NPP-22] 》CO14F - Add a student list and repeated students control by DNI
 - [NPP-24] 》CO16F - Get only students of a course by courseID
 - [NPP-25] 》CO17F - Delete a course by courseID without deleting students
 

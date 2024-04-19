@@ -26,4 +26,7 @@ public class StudentService {
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
+    public Student getStudentByDNI(String studentDNI) {
+        return studentRepository.findStudentByDNI(studentDNI);
+    }
 }

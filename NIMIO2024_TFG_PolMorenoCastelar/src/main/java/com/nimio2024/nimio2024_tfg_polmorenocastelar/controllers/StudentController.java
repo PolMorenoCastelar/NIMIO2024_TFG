@@ -22,14 +22,21 @@ public class StudentController {
     }
 
     public Student createStudent(StudentDTO studentDTO, Long courseId) {
+        if(studentService.getStudentByDNI(studentDTO.getStudentDNI()) != null){
+            System.err.println("Student with DNI: " + studentDTO.getStudentDNI() + " already exists");
+            return null;
+        }
         Student student = new Student(studentDTO);
-        studentService.saveStudent(student);
         Course course = courseService.getCourseById(courseId);
         course.addStudent(student);
         courseService.saveCourse(course);
         return studentService.saveStudent(student);
     }
     public Student createStudent(StudentDTO studentDTO) {
+        if(studentService.getStudentByDNI(studentDTO.getStudentDNI()) != null){
+            System.err.println("Student with DNI: " + studentDTO.getStudentDNI() + " already exists");
+            return null;
+        }
         Student student = new Student(studentDTO);
         return studentService.saveStudent(student);
     }
@@ -42,4 +49,5 @@ public class StudentController {
     public List<Student> getAllStudents() {
         return studentService.getAllStudents();
     }
+
 }

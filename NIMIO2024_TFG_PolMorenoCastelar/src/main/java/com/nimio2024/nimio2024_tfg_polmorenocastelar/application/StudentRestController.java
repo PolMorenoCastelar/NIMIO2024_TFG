@@ -2,6 +2,7 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.application;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.StudentDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers.StudentController;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Student;
 import org.springframework.web.bind.annotation.*;
 
