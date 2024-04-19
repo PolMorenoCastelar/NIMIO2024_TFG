@@ -31,6 +31,12 @@ public class StudentRestController {
         return studentController.getStudentByCourseId(courseId);
     }
 
+    @GetMapping("")
+    public List<Student> getAllStudents() {
+        return studentController.getAllStudents();
+    }
+
+
 
 
 }

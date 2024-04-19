@@ -38,4 +38,8 @@ public class StudentController {
         Course course = courseService.getCourseById(courseId);
         return course.getStudents();
     }
+
+    public List<Student> getAllStudents() {
+        return studentService.getAllStudents();
+    }
 }

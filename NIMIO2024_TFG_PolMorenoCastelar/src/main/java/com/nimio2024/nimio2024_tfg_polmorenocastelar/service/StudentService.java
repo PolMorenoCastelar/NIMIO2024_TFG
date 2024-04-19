@@ -5,6 +5,8 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Student;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.persistence.StudentRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentService {
     StudentRepository studentRepository;
@@ -19,5 +21,9 @@ public class StudentService {
 
     public Student getStudentById(Long studentId) {
         return studentRepository.findById(studentId).orElse(null);
+    }
+
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
     }
 }

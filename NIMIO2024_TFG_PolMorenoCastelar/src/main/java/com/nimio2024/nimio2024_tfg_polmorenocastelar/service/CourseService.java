@@ -28,4 +28,8 @@ public class CourseService {
     public Course saveCourse(Course course) {
         return courseRepository.save(course);
     }
+
+    public void deleteCourse(Course course) {
+        courseRepository.delete(course);
+    }
 }
