@@ -23,4 +23,9 @@ public class CourseRestController {
     public Course updateCourseName(@PathVariable Long courseId, @RequestBody CourseDTO courseDTO){
         return courseController.updateCourseName(courseId, courseDTO);
     }
+
+    @PutMapping("/{courseId}/addStudent/{studentId}")
+    public Course addStudentToCourse(@PathVariable Long courseId, @PathVariable Long studentId){
+        return courseController.addStudentToCourse(courseId, studentId);
+    }
 }

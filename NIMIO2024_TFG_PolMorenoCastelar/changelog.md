@@ -29,6 +29,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - [NPP-19] 》CO11F - Create a course that belongs to a school
 - [NPP-20] 》CO12F - Edit a course name by ID
+- [NPP-21] 》CO13F - Add a student to a course with only id's
 
 
 - [NPP-44] 》ST38F - Create a student associated with a course
+- [NPP-55] 》ST46F - Create a student without associated course
