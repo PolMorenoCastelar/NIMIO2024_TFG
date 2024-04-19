@@ -28,4 +28,10 @@ public class CourseRestController {
     public Course addStudentToCourse(@PathVariable Long courseId, @PathVariable Long studentId){
         return courseController.addStudentToCourse(courseId, studentId);
     }
+
+    @GetMapping("/{courseId}")
+    public Course getCourseById(@PathVariable Long courseId){
+        return courseController.getCourseById(courseId);
+    }
+
 }

@@ -45,4 +45,8 @@ public class CourseController {
         }
         return courseService.saveCourse(course);
     }
+
+    public Course getCourseById(Long courseId) {
+        return courseService.getCourseById(courseId);
+    }
 }
