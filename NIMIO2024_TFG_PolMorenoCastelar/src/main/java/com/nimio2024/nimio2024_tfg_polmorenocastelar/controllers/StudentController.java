@@ -27,4 +27,8 @@ public class StudentController {
         courseService.saveCourse(course);
         return studentService.saveStudent(student);
     }
+    public Student createStudent(StudentDTO studentDTO) {
+        Student student = new Student(studentDTO);
+        return studentService.saveStudent(student);
+    }
 }

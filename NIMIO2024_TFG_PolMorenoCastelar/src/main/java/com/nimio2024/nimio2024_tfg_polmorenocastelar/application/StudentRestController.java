@@ -18,4 +18,10 @@ public class StudentRestController {
     public Student createStudent(@RequestBody StudentDTO studentDTO, @PathVariable Long courseId) {
         return studentController.createStudent(studentDTO, courseId);
     }
+
+    @PostMapping("")
+    public Student createStudent(@RequestBody StudentDTO studentDTO) {
+        return studentController.createStudent(studentDTO);
+    }
+
 }
