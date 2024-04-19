@@ -28,9 +28,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-18] 》SC10F - Delete a school by ID
 
 - [NPP-19] 》CO11F - Create a course that belongs to a school
-- [NPP-20] 》CO12F - Edit a course name by ID
+- [NPP-20] 》CO12F - Edit a course name by courseID
 - [NPP-21] 》CO13F - Add a student to a course with only id's
-- [NPP-23] 》CO15F - Get all students of a course by ID
+- [NPP-23] 》CO15F - Get all students and course details by courseID
+- [NPP-24] 》CO16F - Get only students of a course by courseID
 
 
 - [NPP-44] 》ST38F - Create a student associated with a course

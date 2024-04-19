@@ -5,6 +5,8 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers.StudentControll
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Student;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/students")
 public class StudentRestController {
@@ -23,5 +25,12 @@ public class StudentRestController {
     public Student createStudent(@RequestBody StudentDTO studentDTO) {
         return studentController.createStudent(studentDTO);
     }
+
+    @GetMapping("/course/{courseId}")
+    public List<Student> getStudentsByCourseId(@PathVariable Long courseId) {
+        return studentController.getStudentByCourseId(courseId);
+    }
+
+
 
 }

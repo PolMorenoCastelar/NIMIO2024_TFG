@@ -8,6 +8,8 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CourseService;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.StudentService;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 @Controller
 public class StudentController {
     StudentService studentService;
@@ -30,5 +32,10 @@ public class StudentController {
     public Student createStudent(StudentDTO studentDTO) {
         Student student = new Student(studentDTO);
         return studentService.saveStudent(student);
+    }
+
+    public List<Student> getStudentByCourseId(Long courseId) {
+        Course course = courseService.getCourseById(courseId);
+        return course.getStudents();
     }
 }

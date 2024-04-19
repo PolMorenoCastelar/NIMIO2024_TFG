@@ -61,5 +61,7 @@ public class Course {
         student.setCourse(this);
         students.add(student);
     }
-
+    public List<Student> getStudents() {
+        return students;
+    }
 }
