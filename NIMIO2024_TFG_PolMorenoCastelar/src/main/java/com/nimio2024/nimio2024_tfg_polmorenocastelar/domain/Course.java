@@ -3,6 +3,7 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.CourseDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,10 +19,6 @@ public class Course {
     @Column(name = "course_name")
     private String course_name;
 
-    @OneToMany(mappedBy = "course")
-    @JsonManagedReference
-    @Column(name = "course_student_list")
-    private List<Student> studentList;
 
     @ManyToOne
     @JoinColumn(name = "fk_school_id")
@@ -36,6 +33,10 @@ public class Course {
     public Course(String course_name) {
         this.course_name = course_name;
         this.school = null;
+    }
+    public Course(CourseDTO courseDTO){
+        this.course_name = courseDTO.getCourseName();
+        this.school = courseDTO.getSchool();
     }
 
     public String getCourse_name() {

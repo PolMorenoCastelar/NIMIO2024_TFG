@@ -1,8 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.SchoolDTO;
 import jakarta.persistence.*;
 
@@ -27,6 +25,7 @@ public class School {
 
     @ManyToOne
     @JoinColumn(name = "center")
+    @JsonBackReference
     private Center center;
 
     @OneToMany(mappedBy = "school")

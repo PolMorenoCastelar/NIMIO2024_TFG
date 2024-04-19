@@ -1,16 +1,18 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto;
 
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
+
 public class CourseDTO {
 
     private String courseName;
-    private Long schoolId;
+    private School school;
 
     public CourseDTO() {
     }
 
-    public CourseDTO(String courseName, Long schoolId) {
+    public CourseDTO(String courseName, School school) {
         this.courseName = courseName;
-        this.schoolId = schoolId;
+        this.school = school;
     }
 
     public String getCourseName() {
@@ -21,11 +23,12 @@ public class CourseDTO {
         this.courseName = courseName;
     }
 
-    public Long getSchoolId() {
-        return schoolId;
+    public School getSchool() {
+        return school;
     }
 
-    public void setSchoolId(Long schoolId) {
-        this.schoolId = schoolId;
+    public void setSchool(School school) {
+        this.school = school;
     }
+
 }

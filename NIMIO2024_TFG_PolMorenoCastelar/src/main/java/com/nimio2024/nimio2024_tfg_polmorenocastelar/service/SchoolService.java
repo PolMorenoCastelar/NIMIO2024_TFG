@@ -18,4 +18,6 @@ public class SchoolService {
     }
 
     public School getSchoolById(Long schoolId) {return schoolRepository.findById(schoolId).get();}
+    public void deleteSchool(Long schoolId) {schoolRepository.deleteById(schoolId);}
+
 }

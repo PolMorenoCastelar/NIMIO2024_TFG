@@ -46,4 +46,8 @@ public class SchoolController {
         school.setCourseList(schoolDTO.getCourseList());
         return schoolService.saveSchool(school);
     }
+    public void deleteSchool(Long schoolId) {
+        schoolService.deleteSchool(schoolId);
+    }
+
 }

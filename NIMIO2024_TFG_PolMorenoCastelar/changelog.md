@@ -25,3 +25,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-15] 》SC7F - Get school by ID
 - [NPP-16] 》SC8F - Get all courses of a school by ID
 - [NPP-17] 》SC9F - Edit a school by ID (entire data)
+- [NPP-18] 》SC10F - Delete a school by ID
