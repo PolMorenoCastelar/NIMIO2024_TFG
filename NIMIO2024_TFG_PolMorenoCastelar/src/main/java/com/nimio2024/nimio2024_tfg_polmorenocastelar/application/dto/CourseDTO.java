@@ -1,5 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto;
 
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
 
 public class CourseDTO {
@@ -10,9 +11,17 @@ public class CourseDTO {
     public CourseDTO() {
     }
 
+    public CourseDTO(String courseName) {
+        this.courseName = courseName;
+        this.school = null;
+    }
     public CourseDTO(String courseName, School school) {
         this.courseName = courseName;
         this.school = school;
+    }
+    public CourseDTO(Course course) {
+        this.courseName = course.getCourseName();
+        this.school = course.getSchool();
     }
 
     public String getCourseName() {

@@ -29,7 +29,7 @@ public class School {
     private Center center;
 
     @OneToMany(mappedBy = "school")
-    @Column(name = "course_list")
+    @JsonManagedReference
     private List<Course> courseList;
 
     public School() {

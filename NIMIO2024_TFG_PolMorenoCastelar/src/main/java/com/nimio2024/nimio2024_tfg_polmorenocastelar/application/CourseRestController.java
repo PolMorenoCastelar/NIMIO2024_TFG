@@ -2,6 +2,7 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.application;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.CourseDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers.CourseController;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,7 +15,7 @@ public class CourseRestController {
     }
 
     @PostMapping("/{schoolId}")
-    public void createCourse(@RequestBody CourseDTO courseDTO, @PathVariable Long schoolId){
-        courseController.createCourse(courseDTO, schoolId);
+    public Course createCourse(@RequestBody CourseDTO courseDTO, @PathVariable Long schoolId){
+        return courseController.createCourse(courseDTO, schoolId);
     }
 }

@@ -13,8 +13,10 @@ public class CourseController {
 
     SchoolService schoolService;
 
-    public CourseController(CourseService courseService) {
+    public CourseController(CourseService courseService, SchoolService schoolService){
+
         this.courseService = courseService;
+        this.schoolService = schoolService;
     }
 
     public Course createCourse(CourseDTO courseDTO, Long schoolId) {

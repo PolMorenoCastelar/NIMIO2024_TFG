@@ -41,10 +41,10 @@ public class Course {
         this.school = courseDTO.getSchool();
     }
 
-    public String getCourse_name() {
+    public String getCourseName() {
         return course_name;
     }
-    public void setCourse_name(String course_name) {
+    public void setCourseName(String course_name) {
         this.course_name = course_name;
     }
     public School getSchool() {
