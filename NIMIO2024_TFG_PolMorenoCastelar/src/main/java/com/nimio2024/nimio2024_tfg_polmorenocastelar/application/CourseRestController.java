@@ -18,4 +18,9 @@ public class CourseRestController {
     public Course createCourse(@RequestBody CourseDTO courseDTO, @PathVariable Long schoolId){
         return courseController.createCourse(courseDTO, schoolId);
     }
+
+    @PutMapping("/{courseId}")
+    public Course updateCourseName(@PathVariable Long courseId, @RequestBody CourseDTO courseDTO){
+        return courseController.updateCourseName(courseId, courseDTO);
+    }
 }

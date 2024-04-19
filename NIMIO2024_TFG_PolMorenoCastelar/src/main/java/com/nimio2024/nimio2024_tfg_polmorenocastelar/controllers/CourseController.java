@@ -24,4 +24,10 @@ public class CourseController {
         return courseService.createCourse(courseDTO, school);
 
     }
+
+    public Course updateCourseName(Long courseId, CourseDTO courseDTO) {
+        Course course = courseService.getCourseById(courseId);
+        course.setCourseName(courseDTO.getCourseName());
+        return courseService.saveCourse(course);
+    }
 }

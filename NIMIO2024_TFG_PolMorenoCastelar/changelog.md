@@ -28,3 +28,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-18] 》SC10F - Delete a school by ID
 
 - [NPP-19] 》CO11F - Create a course that belongs to a school
+- [NPP-20] 》CO12F - Edit a course name by ID
