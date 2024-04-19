@@ -25,6 +25,10 @@ public class Course {
     @JsonBackReference
     private School school;
 
+    @OneToMany(mappedBy = "course")
+    @JsonManagedReference
+    private List<Student> students;
+
 
     public Course() {
     }
@@ -53,4 +57,9 @@ public class Course {
     public void setSchool(School school) {
         this.school = school;
     }
+    public void addStudent(Student student) {
+        student.setCourse(this);
+        students.add(student);
+    }
+
 }
