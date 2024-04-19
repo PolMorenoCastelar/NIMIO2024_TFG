@@ -1,5 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -19,10 +20,11 @@ public class Course {
     @Column(name = "course_name")
     private String course_name;
 
-
     @ManyToOne
-    @JoinColumn(name = "fk_school_id")
+    @JoinColumn(name = "school")
+    @JsonBackReference
     private School school;
+
 
     public Course() {
     }

@@ -29,7 +29,7 @@ public class SchoolController {
         return schoolService.saveSchool(school);
     }
 
-    public School getSchool(Long schoolId) {
+    public School getSchool(Long schoolId){
         return schoolService.getSchoolById(schoolId);
     }
 
