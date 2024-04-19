@@ -27,7 +27,6 @@ public class School {
 
     @ManyToOne
     @JoinColumn(name = "center")
-    @JsonBackReference
     private Center center;
 
     @OneToMany(mappedBy = "school")
@@ -36,14 +35,12 @@ public class School {
 
     public School() {
     }
-
     public School(String schoolName, Float schoolLocationLatitude, Float schoolLocationLongitude, Center center) {
         this.schoolName = schoolName;
         this.schoolLocationLatitude = schoolLocationLatitude;
         this.schoolLocationLongitude = schoolLocationLongitude;
         this.center = center;
     }
-
     public School(SchoolDTO schoolDTO){
         this.schoolName = schoolDTO.getSchoolName();
         this.schoolLocationLatitude = schoolDTO.getSchool_location_latitude();
@@ -51,42 +48,31 @@ public class School {
         this.center = schoolDTO.getCenter();
     }
 
-
-
     public String getSchoolName() {
         return schoolName;
     }
-
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName;
     }
-
     public Float getSchoolLocationLatitude() {
         return schoolLocationLatitude;
     }
-
     public void setSchoolLocationLatitude(Float schoolLocationLatitude) {
         this.schoolLocationLatitude = schoolLocationLatitude;
     }
-
     public Float getSchoolLocationLongitude() {
         return schoolLocationLongitude;
     }
-
     public void setSchoolLocationLongitude(Float schoolLocationLongitude) {
         this.schoolLocationLongitude = schoolLocationLongitude;
     }
-
     public Center getCenter() {
 
         return center;
     }
-
     public void setCenter(Center center) {
         this.center = center;
     }
-
-
     public void setCourseList(List<Course> courseList) {
         this.courseList = courseList;
     }
