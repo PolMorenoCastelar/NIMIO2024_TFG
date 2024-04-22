@@ -62,4 +62,8 @@ public class Teacher {
     public List<Course> getTeacherCourses() {
         return teacher_courses;
     }
+
+    public void setTeacherCourses(List<Course> coursesList) {
+        this.teacher_courses = coursesList;
+    }
 }

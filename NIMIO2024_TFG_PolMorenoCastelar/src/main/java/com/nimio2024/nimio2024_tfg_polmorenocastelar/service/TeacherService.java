@@ -16,4 +16,12 @@ public class TeacherService {
     public Teacher createTeacher(Teacher teacher) {
         return teacherRepository.save(teacher);
     }
+
+    public Teacher getTeacherById(Long teacherId) {
+        return teacherRepository.findById(teacherId).orElse(null);
+    }
+
+    public Teacher saveTeacher(Teacher teacher) {
+        return teacherRepository.save(teacher);
+    }
 }
