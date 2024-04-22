@@ -25,6 +25,10 @@ public class Course {
     @JsonBackReference
     private School school;
 
+    @ManyToOne
+    @JoinColumn(name = "teacher")
+    private Teacher teacher;
+
     @OneToMany(mappedBy = "course")
     @JsonManagedReference
     private List<Student> students;
