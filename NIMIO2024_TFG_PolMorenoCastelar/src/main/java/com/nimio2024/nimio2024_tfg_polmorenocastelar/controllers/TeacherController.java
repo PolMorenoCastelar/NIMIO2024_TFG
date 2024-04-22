@@ -30,4 +30,13 @@ public class TeacherController {
         teacher.setTeacherCourses(coursesList);
         return teacherService.saveTeacher(teacher);
     }
+
+    public Teacher getTeacherById(Long teacherId) {
+        return teacherService.getTeacherById(teacherId);
+    }
+
+    public List<Course> getTeacherCourses(Long teacherId) {
+        Teacher teacher = teacherService.getTeacherById(teacherId);
+        return teacher.getTeacherCourses();
+    }
 }
