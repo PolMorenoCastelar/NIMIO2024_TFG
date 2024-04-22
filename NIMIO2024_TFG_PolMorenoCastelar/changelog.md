@@ -35,6 +35,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-24] 》CO16F - Get only students of a course by courseID
 - [NPP-25] 》CO17F - Delete a course by courseID without deleting students
 
+- [NPP-26] 》TE18F - Create a teacher
+
 
 - [NPP-44] 》ST38F - Create a student associated with a course
 - [NPP-55] 》ST46F - Create a student without associated course
