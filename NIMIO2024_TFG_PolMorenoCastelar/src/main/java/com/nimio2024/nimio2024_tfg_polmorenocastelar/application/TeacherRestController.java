@@ -43,6 +43,11 @@ public class TeacherRestController {
         return teacherController.addCourseToTeacher(teacherId, courseId);
     }
 
+    @DeleteMapping("/{teacherId}")
+    public void deleteTeacher(@PathVariable Long teacherId){
+        teacherController.deleteTeacher(teacherId);
+    }
+
 
 
 }

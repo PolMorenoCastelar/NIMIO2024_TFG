@@ -24,4 +24,8 @@ public class TeacherService {
     public Teacher saveTeacher(Teacher teacher) {
         return teacherRepository.save(teacher);
     }
+
+    public void deleteTeacher(Long teacherId) {
+        teacherRepository.deleteById(teacherId);
+    }
 }

@@ -55,4 +55,8 @@ public class TeacherController {
 
         return teacherService.saveTeacher(teacher);
     }
+
+    public void deleteTeacher(Long teacherId) {
+        teacherService.deleteTeacher(teacherId);
+    }
 }

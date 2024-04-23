@@ -37,7 +37,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - [NPP-26] 》TE18F - Create a teacher  
 - [NPP-27] 》TE19F - Update a teacher by ID
+- [NPP-28] 》TE20F - Substitute a teacher by ID or Insert a new one
 - [NPP-29] 》TE21F - Get all courses from a teacher by teacher ID
+- [NPP-30] 》TE22F - Delete a teacher by ID
 
 - [NPP-44] 》ST38F - Create a student associated with a course
 - [NPP-55] 》ST46F - Create a student without associated course
