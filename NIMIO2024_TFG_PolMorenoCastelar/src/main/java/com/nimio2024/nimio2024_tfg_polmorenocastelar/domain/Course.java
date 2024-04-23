@@ -1,9 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.CourseDTO;
 import jakarta.persistence.*;
 
@@ -26,7 +23,7 @@ public class Course {
     private School school;
 
     @ManyToOne
-    @JoinColumn(name = "teacher")
+    @JsonIgnore
     private Teacher teacher;
 
     @OneToMany(mappedBy = "course")
@@ -67,5 +64,13 @@ public class Course {
     }
     public List<Student> getStudents() {
         return students;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
     }
 }

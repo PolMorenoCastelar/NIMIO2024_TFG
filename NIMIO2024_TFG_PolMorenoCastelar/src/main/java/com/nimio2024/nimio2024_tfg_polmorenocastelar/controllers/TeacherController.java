@@ -3,6 +3,7 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.TeacherDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Teacher;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CourseService;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.TeacherService;
 import org.springframework.stereotype.Controller;
 
@@ -12,9 +13,11 @@ import java.util.List;
 public class TeacherController {
 
     TeacherService teacherService;
+    CourseService courseService;
 
-    public TeacherController(TeacherService teacherService) {
+    public TeacherController(TeacherService teacherService, CourseService courseService) {
         this.teacherService = teacherService;
+        this.courseService = courseService;
     }
 
     public Teacher createTeacher(TeacherDTO teacherDTO) {
@@ -38,5 +41,18 @@ public class TeacherController {
     public List<Course> getTeacherCourses(Long teacherId) {
         Teacher teacher = teacherService.getTeacherById(teacherId);
         return teacher.getTeacherCourses();
+    }
+
+    public Teacher addCourseToTeacher(Long teacherId, Long courseId) {
+        Teacher teacher = teacherService.getTeacherById(teacherId);
+        Course course = courseService.getCourseById(courseId);
+        if(course == null || teacher == null){
+            System.err.println("Course or teacher not found");
+            return null;
+        }
+        teacher.addCourse(course);
+        course.setTeacher(teacher);
+
+        return teacherService.saveTeacher(teacher);
     }
 }

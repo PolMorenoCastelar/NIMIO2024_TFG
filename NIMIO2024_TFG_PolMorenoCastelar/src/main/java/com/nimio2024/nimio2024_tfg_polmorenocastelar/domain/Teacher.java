@@ -1,5 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.TeacherDTO;
 import jakarta.persistence.*;
@@ -65,5 +66,9 @@ public class Teacher {
 
     public void setTeacherCourses(List<Course> coursesList) {
         this.teacher_courses = coursesList;
+    }
+
+    public void addCourse(Course course) {
+        teacher_courses.add(course);
     }
 }

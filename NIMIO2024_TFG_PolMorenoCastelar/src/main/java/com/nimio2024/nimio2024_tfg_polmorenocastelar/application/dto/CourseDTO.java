@@ -2,11 +2,14 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Teacher;
 
 public class CourseDTO {
 
     private String courseName;
     private School school;
+
+    private Teacher teacher;
 
     public CourseDTO() {
     }
@@ -14,14 +17,18 @@ public class CourseDTO {
     public CourseDTO(String courseName) {
         this.courseName = courseName;
         this.school = null;
+        this.teacher = null;
     }
     public CourseDTO(String courseName, School school) {
         this.courseName = courseName;
         this.school = school;
+        this.teacher = null;
     }
+
     public CourseDTO(Course course) {
         this.courseName = course.getCourseName();
         this.school = course.getSchool();
+        this.teacher = course.getTeacher();
     }
 
     public String getCourseName() {
