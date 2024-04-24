@@ -23,6 +23,11 @@ public class CenterController {
     }
 
     public Center createCenter(CenterDTO centerDTO) {
+        if(centerService.getCenterByName(centerDTO.getCenterName()).isPresent()) {
+            //throw new IllegalArgumentException("Center already exists"); //TODO: THROW O SYSERR?
+            System.err.println("Center already exists, check the name");
+            return null;
+        }
         Center center = new Center(centerDTO);
         return centerService.saveCenter(center);
     }

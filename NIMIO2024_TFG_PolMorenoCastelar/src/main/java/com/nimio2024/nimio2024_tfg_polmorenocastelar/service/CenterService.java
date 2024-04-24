@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.net.http.HttpResponse;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CenterService {
@@ -44,5 +45,9 @@ public class CenterService {
     public void addSchool(Center center, School school) {
         center.addSchool(school);
         centerRepository.save(center);
+    }
+
+    public Optional<Object> getCenterByName(String centerName) {
+        return centerRepository.findByName(centerName);
     }
 }
