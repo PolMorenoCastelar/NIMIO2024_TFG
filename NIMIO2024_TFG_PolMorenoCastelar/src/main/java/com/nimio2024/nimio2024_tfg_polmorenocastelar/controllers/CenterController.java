@@ -34,6 +34,10 @@ public class CenterController {
 
     public Center updateCenter(Long centerId, CenterDTO centerDTO) {
         Center center = centerService.getCenterById(centerId);
+        if(center == null){
+            System.err.println("Center not found, check the center id");
+            return null;
+        }
         center.setCenterName(centerDTO.getCenterName());
         return centerService.saveCenter(center);
     }
