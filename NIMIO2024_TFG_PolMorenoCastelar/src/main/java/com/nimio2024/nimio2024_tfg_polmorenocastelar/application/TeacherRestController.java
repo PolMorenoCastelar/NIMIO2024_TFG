@@ -43,6 +43,11 @@ public class TeacherRestController {
         return teacherController.addCourseToTeacher(teacherId, courseId);
     }
 
+    @PutMapping("/{teacherIdOld}/replace/{teacherIdNew}")
+    public Teacher replaceTeacher(@PathVariable Long teacherIdOld, @PathVariable Long teacherIdNew){
+        return teacherController.replaceTeacher(teacherIdOld, teacherIdNew);
+    }
+
     @DeleteMapping("/{teacherId}")
     public void deleteTeacher(@PathVariable Long teacherId){
         teacherController.deleteTeacher(teacherId);

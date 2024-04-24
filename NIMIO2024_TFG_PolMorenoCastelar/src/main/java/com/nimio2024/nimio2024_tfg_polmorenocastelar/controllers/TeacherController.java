@@ -59,4 +59,23 @@ public class TeacherController {
     public void deleteTeacher(Long teacherId) {
         teacherService.deleteTeacher(teacherId);
     }
+
+    public Teacher replaceTeacher(Long teacherIdOld, Long teacherIdNew) {
+        Teacher tOld = teacherService.getTeacherById(teacherIdOld);
+        Teacher tNew = teacherService.getTeacherById(teacherIdNew);
+        if(tOld == null || tNew == null){
+            System.err.println("Teacher not found");
+            return null;
+        }
+        List<Course> courses = tOld.getTeacherCourses();
+        tNew.setTeacherCourses(courses);
+        for(Course c : courses){
+            c.setTeacher(tNew);
+            //courseService.saveCourse(c);
+        }
+        return tNew;
+
+
+
+    }
 }
