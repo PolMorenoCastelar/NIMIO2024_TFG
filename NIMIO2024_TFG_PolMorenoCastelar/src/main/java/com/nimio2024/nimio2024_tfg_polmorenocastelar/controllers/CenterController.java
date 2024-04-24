@@ -39,6 +39,11 @@ public class CenterController {
     }
 
     public List<School> getSchoolsByCenter(Long centerId) {
+        if(centerService.getCenterById(centerId) == null) {
+            //throw new IllegalArgumentException("Center not found"); //TODO: THROW O SYSERR?
+            System.err.println("Center not found, check the center id");
+            return null;
+        }
         return centerService.getSchoolsByCenterId(centerId);
     }
 
