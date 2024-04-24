@@ -23,7 +23,17 @@ public class SchoolController {
 
     public School createSchool(SchoolDTO schoolDTO, Long centerId) {
         School school = new School(schoolDTO);
+        if(schoolService.getSchoolByName(school.getSchoolName()).isPresent()) {
+            //throw new IllegalArgumentException("School already exists"); //TODO: THROW O SYSERR?
+            System.err.println("School already exists, check the name");
+            return null;
+        }
         Center center = centerService.getCenterById(centerId);
+        if(center == null){
+            //TODO: THROW O SYSERR?
+            System.err.println("Center not found, check the center id");
+            return null;
+        }
         school.setCenter(center);
         centerService.addSchool(center, school);
         return schoolService.saveSchool(school);
