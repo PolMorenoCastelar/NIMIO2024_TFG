@@ -5,6 +5,7 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SchoolDTO {
@@ -12,7 +13,7 @@ public class SchoolDTO {
     private String schoolName;
     private Float school_location_latitude;
     private Float school_location_longitude;
-    private List<Course> courseList;
+    private List<Course> courseList = new ArrayList<>();
     private Center center;
 
     public SchoolDTO(){
@@ -23,12 +24,14 @@ public class SchoolDTO {
         this.school_location_latitude = school_location_latitude;
         this.school_location_longitude = school_location;
         this.center = center;
+        this.courseList = new ArrayList<>();
     }
     public SchoolDTO(School school){
         this.schoolName = school.getSchoolName();
         this.school_location_latitude = school.getSchoolLocationLatitude();
         this.school_location_longitude = school.getSchoolLocationLongitude();
         this.center = school.getCenter();
+        this.courseList = school.getCourseList();
     }
 
     public String getSchoolName() {

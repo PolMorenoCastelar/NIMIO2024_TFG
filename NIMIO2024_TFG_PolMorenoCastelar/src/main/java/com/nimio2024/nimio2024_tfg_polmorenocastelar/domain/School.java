@@ -40,12 +40,14 @@ public class School {
         this.schoolLocationLatitude = schoolLocationLatitude;
         this.schoolLocationLongitude = schoolLocationLongitude;
         this.center = center;
+        this.courseList = new ArrayList<>();
     }
     public School(SchoolDTO schoolDTO){
         this.schoolName = schoolDTO.getSchoolName();
         this.schoolLocationLatitude = schoolDTO.getSchool_location_latitude();
         this.schoolLocationLongitude = schoolDTO.getSchool_location_longitude();
         this.center = schoolDTO.getCenter();
+        this.courseList = new ArrayList<>();
     }
 
     public String getSchoolName() {
