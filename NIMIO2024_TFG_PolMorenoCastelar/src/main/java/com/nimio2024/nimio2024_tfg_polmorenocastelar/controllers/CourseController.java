@@ -67,7 +67,6 @@ public class CourseController {
         Course course = courseService.getCourseById(courseId);
         for (StudentDTO studentDTO : studentListDTO) {
             if(checkStudentExists(studentDTO)){
-                //si existe
                 System.err.println("Student with DNI:"+ studentDTO.getStudentDNI() +"already exists");
                 Student student = studentService.getStudentByDNI(studentDTO.getStudentDNI());
                 studentService.saveStudent(student);
@@ -86,5 +85,18 @@ public class CourseController {
 
     private boolean checkStudentExists(StudentDTO studentDTO) {
         return studentService.getStudentByDNI(studentDTO.getStudentDNI())!=null;
+    }
+
+    public Course addStudentToCourseByDNI(Long courseId, String studentDNI) {
+        Student student = studentService.getStudentByDNI(studentDNI);
+        if(student!=null){
+            Course course = courseService.getCourseById(courseId);//TODO: CHECK IF COURSE EXISTS
+            student.setCourse(course);
+            course.addStudent(student);
+            return courseService.saveCourse(course);
+        }else{
+            System.err.println("Student with DNI:"+ studentDNI +" not found");
+            return null;
+        }
     }
 }

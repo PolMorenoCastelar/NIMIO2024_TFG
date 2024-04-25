@@ -32,6 +32,11 @@ public class CourseRestController {
         return courseController.addStudentToCourse(courseId, studentId);
     }
 
+    @PutMapping ("/{courseId}/addStudentByDNI/{studentDNI}")
+    public Course addStudentToCourseByDNI(@PathVariable Long courseId, @PathVariable String studentDNI){
+        return courseController.addStudentToCourseByDNI(courseId, studentDNI);
+    }
+
     @PutMapping("/{courseId}/addStudentList")
     public Course addStudentListToCourse(@PathVariable Long courseId, @RequestBody List<StudentDTO> studentListDTO){
         return courseController.addStudentListToCourse(courseId, studentListDTO);
