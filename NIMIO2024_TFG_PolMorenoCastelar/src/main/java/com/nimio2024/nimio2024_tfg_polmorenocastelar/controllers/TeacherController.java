@@ -78,4 +78,8 @@ public class TeacherController {
 
 
     }
+
+    public List<Teacher> getAllTeachers() {
+        return teacherService.getAllTeachers();
+    }
 }

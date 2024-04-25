@@ -50,4 +50,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-57] 》EX48 - Update only school name by schoolID
 - [NPP-58] 》EX49 - Add students to a course by DNI and courseID
 - [NPP-59] 》EX50 - Migrate only students from a course to another course by coursesIDS
+- [NPP-60] 》EX51 - Get all teachers from school by schoolID
 

@@ -4,6 +4,8 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Teacher;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.persistence.TeacherRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TeacherService {
 
@@ -28,4 +30,9 @@ public class TeacherService {
     public void deleteTeacher(Long teacherId) {
         teacherRepository.deleteById(teacherId);
     }
+
+    public List<Teacher> getAllTeachers() {
+        return teacherRepository.findAll();
+    }
+
 }

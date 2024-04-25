@@ -38,6 +38,11 @@ public class TeacherRestController {
         return teacherController.getTeacherCourses(teacherId);
     }
 
+    @GetMapping("")
+    public List<Teacher> getAllTeachers(){
+        return teacherController.getAllTeachers();
+    }
+
     @PutMapping("/{teacherId}/addCourse/{courseId}")
     public Teacher addCourseToTeacher(@PathVariable Long teacherId, @PathVariable Long courseId){
         return teacherController.addCourseToTeacher(teacherId, courseId);

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.*;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.SchoolDTO;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -77,5 +78,13 @@ public class School {
     }
     public List<Course> getCourseList() {
         return courseList;
+    }
+
+    public List<Teacher> getTeachers() {
+        List<Teacher> tList = new ArrayList<Teacher>();
+        for(Course c : courseList){
+            tList.add(c.getTeacher());
+        }
+        return tList;
     }
 }
