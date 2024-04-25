@@ -73,4 +73,8 @@ public class Course {
     public Teacher getTeacher() {
         return teacher;
     }
+
+    public void cleanCourse() {
+        students = null;
+    }
 }

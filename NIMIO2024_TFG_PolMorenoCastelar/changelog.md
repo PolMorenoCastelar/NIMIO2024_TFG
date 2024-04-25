@@ -49,4 +49,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-56] 》EX47 - Get center name from school by schoolID
 - [NPP-57] 》EX48 - Update only school name by schoolID
 - [NPP-58] 》EX49 - Add students to a course by DNI and courseID
+- [NPP-59] 》EX50 - Migrate only students from a course to another course by coursesIDS
 

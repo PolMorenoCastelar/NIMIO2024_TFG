@@ -99,4 +99,21 @@ public class CourseController {
             return null;
         }
     }
+
+    public Course migrateStudentsToCourse(Long oldCourseId, Long newCourseId) {
+        Course cOld = courseService.getCourseById(oldCourseId);
+        Course cNew = courseService.getCourseById(newCourseId);
+        if(cOld!=null && cNew!=null){
+            List<Student> students = cOld.getStudents();
+            for(Student student: students){
+                student.setCourse(cNew);
+                cNew.addStudent(student);
+            }
+            cOld.cleanCourse();
+            courseService.saveCourse(cNew);
+            return cNew;
+        }
+        System.err.println("Course not found");
+        return null;
+    }
 }

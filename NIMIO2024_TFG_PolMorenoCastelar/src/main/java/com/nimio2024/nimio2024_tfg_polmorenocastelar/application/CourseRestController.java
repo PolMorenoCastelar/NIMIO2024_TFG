@@ -42,6 +42,11 @@ public class CourseRestController {
         return courseController.addStudentListToCourse(courseId, studentListDTO);
     }
 
+    @PutMapping("/{oldCourseId}/migrateToCourse/{newCourseId}")
+    public Course migrateStudentsToCourse(@PathVariable Long oldCourseId, @PathVariable Long newCourseId){
+        return courseController.migrateStudentsToCourse(oldCourseId, newCourseId);
+    }
+
     @GetMapping("/{courseId}")
     public Course getCourseById(@PathVariable Long courseId){
         return courseController.getCourseById(courseId);
