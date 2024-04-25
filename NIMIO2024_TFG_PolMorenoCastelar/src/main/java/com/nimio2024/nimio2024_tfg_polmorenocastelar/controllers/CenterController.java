@@ -1,6 +1,8 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.CenterDTO;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.CenterAlreadyExistsException;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.CenterDoNotExistException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Center;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.School;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CenterService;
@@ -18,35 +20,33 @@ public class CenterController {
         this.centerService = centerService;
     }
 
-    public ResponseEntity<List<Center>> getAllCenters() {
+    public ResponseEntity<List<Center>> getAllCenters() throws CenterDoNotExistException {
+        if(centerService.getAllCenters() == null){
+           throw new CenterDoNotExistException("There are no centers");
+        }
         return centerService.getAllCenters();
     }
 
-    public Center createCenter(CenterDTO centerDTO) {
+    public Center createCenter(CenterDTO centerDTO) throws CenterAlreadyExistsException {
         if(centerService.getCenterByName(centerDTO.getCenterName()).isPresent()) {
-            //throw new IllegalArgumentException("Center already exists"); //TODO: THROW O SYSERR?
-            System.err.println("Center already exists, check the name");
-            return null;
+            throw new CenterAlreadyExistsException("Center with name "+ centerDTO.getCenterName() +" already exists");
         }
         Center center = new Center(centerDTO);
         return centerService.saveCenter(center);
     }
 
-    public Center updateCenter(Long centerId, CenterDTO centerDTO) {
+    public Center updateCenter(Long centerId, CenterDTO centerDTO) throws CenterDoNotExistException {
         Center center = centerService.getCenterById(centerId);
         if(center == null){
-            System.err.println("Center not found, check the center id");
-            return null;
+            throw new CenterDoNotExistException("Center with id "+ centerId +" does not exist");
         }
         center.setCenterName(centerDTO.getCenterName());
         return centerService.saveCenter(center);
     }
 
-    public List<School> getSchoolsByCenter(Long centerId) {
+    public List<School> getSchoolsByCenter(Long centerId) throws CenterDoNotExistException {
         if(centerService.getCenterById(centerId) == null) {
-            //throw new IllegalArgumentException("Center not found"); //TODO: THROW O SYSERR?
-            System.err.println("Center not found, check the center id");
-            return null;
+            throw new CenterDoNotExistException("Center with id "+ centerId +" does not exist");
         }
         return centerService.getSchoolsByCenterId(centerId);
     }
