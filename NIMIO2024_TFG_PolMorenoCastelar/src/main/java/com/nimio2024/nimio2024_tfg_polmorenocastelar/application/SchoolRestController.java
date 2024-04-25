@@ -39,4 +39,9 @@ public class SchoolRestController {
     public void deleteSchool(@PathVariable Long schoolId){
         schoolController.deleteSchool(schoolId);
     }
+
+    @GetMapping("/centerName/{schoolId}")
+    public String getCenterNameBySchoolId(@PathVariable Long schoolId){
+        return schoolController.getCenterNameBySchoolId(schoolId);
+    }
 }

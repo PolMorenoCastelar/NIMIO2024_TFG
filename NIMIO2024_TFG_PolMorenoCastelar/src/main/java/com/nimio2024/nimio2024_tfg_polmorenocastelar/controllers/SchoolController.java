@@ -60,4 +60,8 @@ public class SchoolController {
         schoolService.deleteSchool(schoolId);
     }
 
+    public String getCenterNameBySchoolId(Long schoolId) {
+        School school = schoolService.getSchoolById(schoolId);
+        return school.getCenter().getCenterName();
+    }
 }
