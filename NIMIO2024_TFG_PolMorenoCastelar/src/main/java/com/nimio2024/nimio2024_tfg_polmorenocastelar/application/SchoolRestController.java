@@ -35,6 +35,11 @@ public class SchoolRestController {
     public School updateSchool(@PathVariable Long schoolId, @RequestBody SchoolDTO schoolDTO){
         return schoolController.updateSchool(schoolId, schoolDTO);
     }
+    @PutMapping("/{schoolId}/schoolName")
+    public School updateSchoolName(@PathVariable Long schoolId, @RequestBody String schoolName){
+        return schoolController.updateSchoolName(schoolId, schoolName);
+    }
+
     @DeleteMapping("/{schoolId}")
     public void deleteSchool(@PathVariable Long schoolId){
         schoolController.deleteSchool(schoolId);

@@ -47,4 +47,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-55] 》ST46F - Create a student without associated course
 
 - [NPP-56] 》EX47 - Get center name from school by schoolID
+- [NPP-57] 》EX48 - Update only school name by schoolID
 

@@ -64,4 +64,10 @@ public class SchoolController {
         School school = schoolService.getSchoolById(schoolId);
         return school.getCenter().getCenterName();
     }
+
+    public School updateSchoolName(Long schoolId, String schoolName) {
+        School school = schoolService.getSchoolById(schoolId);
+        school.setSchoolName(schoolName);
+        return schoolService.saveSchool(school);
+    }
 }
