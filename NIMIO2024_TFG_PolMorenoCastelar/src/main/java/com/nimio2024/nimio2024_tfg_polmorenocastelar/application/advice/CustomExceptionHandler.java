@@ -1,7 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.application.advice;
 
-import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.CenterAlreadyExistsException;
-import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.CenterDoNotExistException;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -30,6 +29,29 @@ public class CustomExceptionHandler {
         return map;
     }
 
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(SchoolDoNotExistException.class)
+    public Map<String, String> handleSchoolDoNotExistException(SchoolDoNotExistException exception) {
+        Map<String, String> map =  new HashMap<>();
+        map.put("School ERROR", exception.getMessage());
+        return map;
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(CourseDoNotExistException.class)
+    public Map<String, String> handleCourseDoNotExistException(CourseDoNotExistException exception) {
+        Map<String, String> map =  new HashMap<>();
+        map.put("Course ERROR", exception.getMessage());
+        return map;
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(StudentNotExistsException.class)
+    public Map<String, String> handleStudentNotExistsException(StudentNotExistsException exception) {
+        Map<String, String> map =  new HashMap<>();
+        map.put("Student ERROR", exception.getMessage());
+        return map;
+    }
 
 
 }

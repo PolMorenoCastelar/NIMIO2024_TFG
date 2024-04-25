@@ -25,7 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Center Exceptions
 
-- [NPP-61] 》Center Exceptions - Get all students from a course by courseID
+- [NPP-61] 》Center Exceptions - Create all center exceptions
 
 
 ### School
@@ -45,6 +45,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-22] 》CO14F - Add a student list and repeated students control by DNI
 - [NPP-24] 》CO16F - Get only students of a course by courseID
 - [NPP-25] 》CO17F - Delete a course by courseID without deleting students
+
+### Course Exceptions
+
+- [NPP-62] 》Course Exceptions - Create all course exceptions
 
 ### Teacher
 
