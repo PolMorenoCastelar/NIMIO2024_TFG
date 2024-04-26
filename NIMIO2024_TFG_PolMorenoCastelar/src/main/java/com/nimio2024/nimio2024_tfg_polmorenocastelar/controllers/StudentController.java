@@ -1,6 +1,8 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.StudentDTO;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.CourseDoNotExistException;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentAlreadyExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Student;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.persistence.CourseRepository;
@@ -21,28 +23,33 @@ public class StudentController {
         this.courseService = courseService;
     }
 
-    public Student createStudent(StudentDTO studentDTO, Long courseId) {
+    public Student createStudent(StudentDTO studentDTO, Long courseId) throws StudentAlreadyExistsException, CourseDoNotExistException {
         if(studentService.getStudentByDNI(studentDTO.getStudentDNI()) != null){
-            System.err.println("Student with DNI: " + studentDTO.getStudentDNI() + " already exists");
-            return null;
+            throw new StudentAlreadyExistsException("Student with DNI: " + studentDTO.getStudentDNI() + " already exists");
         }
         Student student = new Student(studentDTO);
         Course course = courseService.getCourseById(courseId);
+        if(course == null){
+            throw new CourseDoNotExistException("Course with ID: " + courseId + " does not exist");
+        }
         course.addStudent(student);
         courseService.saveCourse(course);
         return studentService.saveStudent(student);
     }
-    public Student createStudent(StudentDTO studentDTO) {
+    public Student createStudent(StudentDTO studentDTO) throws StudentAlreadyExistsException {
         if(studentService.getStudentByDNI(studentDTO.getStudentDNI()) != null){
-            System.err.println("Student with DNI: " + studentDTO.getStudentDNI() + " already exists");
-            return null;
+            throw new StudentAlreadyExistsException("Student with DNI: " + studentDTO.getStudentDNI() + " already exists");
+
         }
         Student student = new Student(studentDTO);
         return studentService.saveStudent(student);
     }
 
-    public List<Student> getStudentByCourseId(Long courseId) {
+    public List<Student> getStudentByCourseId(Long courseId) throws CourseDoNotExistException {
         Course course = courseService.getCourseById(courseId);
+        if(course == null){
+            throw new CourseDoNotExistException("Course with ID: " + courseId + " does not exist");
+        }
         return course.getStudents();
     }
 
