@@ -63,6 +63,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-30] 》TE22F - Delete a teacher by ID
 - [NPP-28] 》TE20F - Substitute a teacher by ID, with a teacher already created
 
+### Teacher Exceptions
+
+- [NPP-65] 》Teacher Exceptions - Create all teacher exceptions
 
 ### Student
 

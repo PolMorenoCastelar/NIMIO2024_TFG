@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface TeacherRepository extends JpaRepository<Teacher, Long> {
 
-
+    @Query(value = "SELECT * FROM Teacher t WHERE t.teacher_dni = :teacherDni LIMIT 1", nativeQuery = true)
+    Teacher findTeacherByDNI(String teacherDni);
 }

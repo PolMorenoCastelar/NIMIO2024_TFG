@@ -1,5 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto;
 
+
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Teacher;
 
@@ -8,7 +9,9 @@ import java.util.List;
 public class TeacherDTO {
     private String teacherName;
     private String teacherSurname;
-    private List<Course> courses;
+    private String teacherDNI;
+    //private List<Course> courses;
+
 
     public TeacherDTO() {
     }
@@ -16,18 +19,21 @@ public class TeacherDTO {
     public TeacherDTO(Teacher teacher){
         this.teacherName = teacher.getTeacherName();
         this.teacherSurname = teacher.getTeacherSurname();
-        this.courses = teacher.getTeacherCourses();
+        this.teacherDNI = teacher.getTeacherDNI();
+       // this.courses = teacher.getTeacherCourses();
     }
 
-    public TeacherDTO(String teacherName, String teacherSurname) {
+    public TeacherDTO(String teacherName, String teacherSurname, String teacherDNI) {
         this.teacherName = teacherName;
         this.teacherSurname = teacherSurname;
+        this.teacherDNI = teacherDNI;
     }
 
-    public TeacherDTO(String teacherName, String teacherSurname, List<Course> courses) {
+    public TeacherDTO(String teacherName, String teacherSurname, String teacherDNI,List<Course> courses) {
         this.teacherName = teacherName;
         this.teacherSurname = teacherSurname;
-        this.courses = courses;
+        this.teacherDNI = teacherDNI;
+       // this.courses = courses;
     }
 
     public String getTeacherName() {
@@ -46,11 +52,23 @@ public class TeacherDTO {
         this.teacherSurname = teacherSurname;
     }
 
-    public List<Course> getCourses() {
+    /*public List<Course> getCourses() {
         return courses;
     }
 
     public void setCourses(List<Course> courses) {
         this.courses = courses;
+    }*/
+
+    public String getTeacherDNI() {
+        return teacherDNI;
+    }
+
+    public String getTeacher_DNI() {
+        return teacherDNI;
+    }
+
+    public void setTeacher_DNI(String teacher_DNI) {
+        this.teacherDNI = teacher_DNI;
     }
 }

@@ -35,4 +35,7 @@ public class TeacherService {
         return teacherRepository.findAll();
     }
 
+    public Teacher findTeacherByDNI(String teacherDni) {
+        return teacherRepository.findTeacherByDNI(teacherDni);
+    }
 }
