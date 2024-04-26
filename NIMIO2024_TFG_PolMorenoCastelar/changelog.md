@@ -36,6 +36,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-17] 》SC9F - Edit a school by ID (entire data)
 - [NPP-18] 》SC10F - Delete a school by ID
 
+### School Exceptions
+
+- [NPP-63] 》School Exceptions - Create all school exceptions
+
 ### Course
 
 - [NPP-19] 》CO11F - Create a course that belongs to a school

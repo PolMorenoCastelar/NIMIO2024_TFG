@@ -53,5 +53,13 @@ public class CustomExceptionHandler {
         return map;
     }
 
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(SchoolAlreadyExistsException.class)
+    public Map<String, String> handleSchoolAlreadyExistsException(SchoolAlreadyExistsException exception) {
+        Map<String, String> map =  new HashMap<>();
+        map.put("School ERROR", exception.getMessage());
+        return map;
+    }
+
 
 }

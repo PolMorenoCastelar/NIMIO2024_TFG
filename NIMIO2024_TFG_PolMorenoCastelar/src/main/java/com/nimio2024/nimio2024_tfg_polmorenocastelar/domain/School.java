@@ -76,9 +76,16 @@ public class School {
         this.center = center;
     }
     public void setCourseList(List<Course> courseList) {
-        this.courseList = courseList;
+        if(courseList == null){
+            this.courseList = new ArrayList<>();
+        }else{
+            this.courseList = courseList;
+        }
     }
     public List<Course> getCourseList() {
+        if(courseList == null){
+            return new ArrayList<>();
+        }
         return courseList;
     }
 
