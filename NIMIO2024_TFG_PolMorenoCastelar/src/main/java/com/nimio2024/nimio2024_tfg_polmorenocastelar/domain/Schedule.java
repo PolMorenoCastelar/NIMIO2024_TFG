@@ -20,6 +20,10 @@ public class Schedule {
     @JoinColumn(name = "course")
     private Course course;
 
+    @ManyToOne
+    @JoinColumn(name = "classS")
+    private ClassS classS;
+
     public Schedule() {
     }
 
