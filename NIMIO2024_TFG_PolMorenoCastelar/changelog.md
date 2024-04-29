@@ -76,6 +76,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - [NPP-64] 》Student Exceptions - Create all student exceptions
 
+### ClassS
+
+- [NPP-32] 》CL24F - Create classes 
+
 ### Extra Functionalities 
 
 - [NPP-56] 》EX47 - Get center name from school by schoolID

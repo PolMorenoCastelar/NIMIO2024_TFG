@@ -1,5 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.ClassDTO;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -39,6 +40,13 @@ public class ClassS {
         this.class_name = class_name;
         this.class_number = class_number;
         this.class_location = class_location;
+    }
+
+    public ClassS(ClassDTO classDTO){
+        this.class_name = classDTO.getClassName();
+        this.class_number = classDTO.getClassNumber();
+        this.class_location = classDTO.getClassLocation();
+        this.schedule = classDTO.getClassSchedule();
     }
 
     public String getClassName() {
