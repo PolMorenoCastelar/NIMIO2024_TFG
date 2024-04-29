@@ -1,5 +1,7 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.ScheduleDTO;
 import jakarta.persistence.*;
 
 @Entity
@@ -27,10 +29,19 @@ public class Schedule {
     public Schedule() {
     }
 
-    public Schedule(String startTimeClass, String endTimeClass, Course course) {
+
+    public Schedule(String startTimeClass, String endTimeClass, Course course, ClassS classS) {
         this.startTimeClass = startTimeClass;
         this.endTimeClass = endTimeClass;
         this.course = course;
+        this.classS = classS;
+    }
+
+    public Schedule (ScheduleDTO scheduleDTO){
+        this.startTimeClass = scheduleDTO.getStartTimeClass();
+        this.endTimeClass = scheduleDTO.getEndTimeClass();
+        this.course = scheduleDTO.getCourse();
+        this.classS = scheduleDTO.getClassS();
     }
 
     public String getStartTimeClass() {
@@ -53,7 +64,15 @@ public class Schedule {
         return course;
     }
 
+    public ClassS getClassS() {
+        return classS;
+    }
+
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public void setClassS(ClassS classS) {
+        this.classS = classS;
     }
 }

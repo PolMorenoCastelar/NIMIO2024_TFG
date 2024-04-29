@@ -21,4 +21,8 @@ public class ClassService {
     public ClassS getClassById(Long classId) {
         return classRepository.findById(classId).orElse(null);
     }
+
+    public void deleteClass(Long classId) {
+        classRepository.deleteById(classId);
+    }
 }

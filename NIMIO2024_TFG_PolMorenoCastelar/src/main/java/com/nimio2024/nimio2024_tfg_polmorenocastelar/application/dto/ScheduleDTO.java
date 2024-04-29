@@ -1,5 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto;
 
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.ClassS;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 
 public class ScheduleDTO {
@@ -9,14 +10,17 @@ public class ScheduleDTO {
 
     private Course course;
 
+    private ClassS classS;
+
     public ScheduleDTO(){
 
     }
 
-    public ScheduleDTO(String startTimeClass, String endTimeClass, Course course) {
+    public ScheduleDTO(String startTimeClass, String endTimeClass, Course course, ClassS classS) {
         this.startTimeClass = startTimeClass;
         this.endTimeClass = endTimeClass;
         this.course = course;
+        this.classS = classS;
     }
 
     public String getStartTimeClass() {
@@ -36,6 +40,7 @@ public class ScheduleDTO {
     }
 
     public Course getCourse() {
+
         return course;
     }
 
@@ -43,4 +48,10 @@ public class ScheduleDTO {
         this.course = course;
     }
 
+    public ClassS getClassS() {
+        return classS;
+    }
+    public void setClassS(ClassS classS) {
+        this.classS = classS;
+    }
 }

@@ -1,5 +1,8 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.ClassDTO;
 import jakarta.persistence.*;
 
@@ -24,6 +27,7 @@ public class ClassS {
     private String class_location;
 
     @OneToMany(mappedBy = "classS")
+    @JsonIgnore
     private List<Schedule> schedule = new ArrayList<>();
 
     public ClassS() {
@@ -33,7 +37,6 @@ public class ClassS {
         this.class_name = class_name;
         this.class_number = class_number;
         this.class_location = class_location;
-        this.schedule = schedule;
     }
 
     public ClassS(String class_name, String class_number, String class_location) {
@@ -46,7 +49,6 @@ public class ClassS {
         this.class_name = classDTO.getClassName();
         this.class_number = classDTO.getClassNumber();
         this.class_location = classDTO.getClassLocation();
-        this.schedule = classDTO.getClassSchedule();
     }
 
     public String getClassName() {
@@ -73,8 +75,6 @@ public class ClassS {
         this.class_location = class_location;
     }
 
-    public List<Schedule> getClassSchedule() {
-        return schedule;
-    }
+
 
 }

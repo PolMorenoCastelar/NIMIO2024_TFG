@@ -25,4 +25,7 @@ public class ClassController {
     }
 
 
+    public void deleteClass(Long classId) {
+        classService.deleteClass(classId);
+    }
 }

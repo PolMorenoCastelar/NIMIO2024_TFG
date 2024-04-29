@@ -24,6 +24,12 @@ public class ClassRestController {
     public ClassS getClass(@PathVariable Long classId){
         return classController.getClassById(classId);
     }
+
+    @DeleteMapping("/{classId}")
+    public void deleteClass(@PathVariable Long classId){
+        classController.deleteClass(classId);
+    }
+
 }
 
 

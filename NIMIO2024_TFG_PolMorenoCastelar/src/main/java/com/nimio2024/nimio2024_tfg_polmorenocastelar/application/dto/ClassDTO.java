@@ -13,7 +13,7 @@ public class ClassDTO {
 
     private String classLocation;
 
-    private List<Schedule> classSchedule;
+    //private List<Schedule> classSchedule;
 
     public ClassDTO() {
     }
@@ -22,14 +22,14 @@ public class ClassDTO {
         this.className = className;
         this.classNumber = classNumber;
         this.classLocation = classLocation;
-        this.classSchedule = classSchedule;
+        //this.classSchedule = classSchedule;
     }
 
    public ClassDTO (ClassS classS){
         this.className = classS.getClassName();
         this.classNumber = classS.getClassNumber();
         this.classLocation = classS.getClassLocation();
-        this.classSchedule = classS.getClassSchedule();
+        //this.classSchedule = classS.getClassSchedule();
     }
 
     public String getClassName() {
@@ -56,12 +56,8 @@ public class ClassDTO {
         this.classLocation = classLocation;
     }
 
-    public List<Schedule> getClassSchedule() {
-        return classSchedule;
-    }
+    //public List<Schedule> getClassSchedule() {return classSchedule;}
 
-    public void setClassSchedule(List<Schedule> classSchedule) {
-        this.classSchedule = classSchedule;
-   }
+    //public void setClassSchedule(List<Schedule> classSchedule) {this.classSchedule = classSchedule;}
 
 }
