@@ -19,4 +19,10 @@ public class ClassController {
         ClassS classS = new ClassS(classDTO);
         return classService.saveClass(classS);
     }
+
+    public ClassS getClassById(Long classId) {
+        return classService.getClassById(classId);
+    }
+
+
 }

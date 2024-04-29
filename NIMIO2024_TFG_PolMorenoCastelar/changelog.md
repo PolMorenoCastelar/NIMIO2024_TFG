@@ -79,6 +79,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### ClassS
 
 - [NPP-32] 》CL24F - Create classes 
+- [NPP-33] 》CL25F - Get class by classID
 
 ### Extra Functionalities 
 
