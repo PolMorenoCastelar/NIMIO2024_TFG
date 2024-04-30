@@ -23,9 +23,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-12] 》CE4F - Edit a Center by ID
 - [NPP-13] 》CE5F - Delete a Center by ID
 
-### Center Exceptions
-
-- [NPP-61] 》Center Exceptions - Create all center exceptions
+    ## Center Exceptions
+    
+    - [NPP-61] 》Center Exceptions - Create all center exceptions
 
 
 ### School
@@ -36,9 +36,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-17] 》SC9F - Edit a school by ID (entire data)
 - [NPP-18] 》SC10F - Delete a school by ID
 
-### School Exceptions
+    ## School Exceptions
 
-- [NPP-63] 》School Exceptions - Create all school exceptions
+    - [NPP-63] 》School Exceptions - Create all school exceptions
+    
+    ## School Extra Functionalities
+
+    - [NPP-56] 》EX47 - Get center name from school by schoolID
+    - [NPP-57] 》EX48 - Update only school name by schoolID
+     
 
 ### Course
 
@@ -50,9 +56,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-24] 》CO16F - Get only students of a course by courseID
 - [NPP-25] 》CO17F - Delete a course by courseID without deleting students
 
-### Course Exceptions
-
-- [NPP-62] 》Course Exceptions - Create all course exceptions
+    ## Course Exceptions
+    
+    - [NPP-62] 》Course Exceptions - Create all course exceptions
 
 ### Teacher
 
@@ -63,29 +69,41 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-30] 》TE22F - Delete a teacher by ID
 - [NPP-28] 》TE20F - Substitute a teacher by ID, with a teacher already created
 
-### Teacher Exceptions
+    ## Teacher Exceptions
 
-- [NPP-65] 》Teacher Exceptions - Create all teacher exceptions
+    - [NPP-65] 》Teacher Exceptions - Create all teacher exceptions
+
+    ## Teacher Extra Functionalities
+
+    - [NPP-60] 》EX51 - Get all teachers from school by schoolID
 
 ### Student
 
 - [NPP-44] 》ST38F - Create a student associated with a course
 - [NPP-55] 》ST46F - Create a student without associated course
 
-### Student Exceptions
+    ## Student Exceptions
 
-- [NPP-64] 》Student Exceptions - Create all student exceptions
+    - [NPP-64] 》Student Exceptions - Create all student exceptions
+
+    ## Student Extra Functionalities
+
+    - [NPP-58] 》EX49 - Add students to a course by DNI and courseID
+    - [NPP-59] 》EX50 - Migrate only students from a course to another course by coursesIDS
+
 
 ### ClassS
 
 - [NPP-32] 》CL24F - Create classes 
 - [NPP-33] 》CL25F - Get class by classID
 
-### Extra Functionalities 
+### Schedule
 
-- [NPP-56] 》EX47 - Get center name from school by schoolID
-- [NPP-57] 》EX48 - Update only school name by schoolID
-- [NPP-58] 》EX49 - Add students to a course by DNI and courseID
-- [NPP-59] 》EX50 - Migrate only students from a course to another course by coursesIDS
-- [NPP-60] 》EX51 - Get all teachers from school by schoolID
+- [NPP-31] 》SC23F - Get schedule by classId
+
+    ## Schecule Extra Functionalities
+    
+    - [NPP-68] 》EX54F - Get all schedules for a course by courseID
+
+
 

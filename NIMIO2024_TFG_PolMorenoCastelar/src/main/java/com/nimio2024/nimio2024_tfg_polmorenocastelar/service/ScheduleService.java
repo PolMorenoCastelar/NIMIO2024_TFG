@@ -4,6 +4,8 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Schedule;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.persistence.ScheduleRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ScheduleService {
     ScheduleRepository scheduleRepository;
@@ -18,5 +20,10 @@ public class ScheduleService {
 
     public Schedule getScheduleById(Long scheduleId) {
         return scheduleRepository.findById(scheduleId).orElse(null);
+    }
+
+
+    public List<Schedule> findAllSchedule() {
+        return scheduleRepository.findAll();
     }
 }

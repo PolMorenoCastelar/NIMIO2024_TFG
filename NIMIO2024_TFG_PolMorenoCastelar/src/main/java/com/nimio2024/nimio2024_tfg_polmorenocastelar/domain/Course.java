@@ -33,15 +33,18 @@ public class Course {
 
     public Course() {
     }
+
     public Course(String course_name, School school) {
         this.course_name = course_name;
         this.school = school;
     }
+
     public Course(String course_name) {
         this.course_name = course_name;
         this.school = null;
     }
-    public Course(CourseDTO courseDTO){
+
+    public Course(CourseDTO courseDTO) {
         this.course_name = courseDTO.getCourseName();
         this.school = courseDTO.getSchool();
     }
@@ -49,19 +52,24 @@ public class Course {
     public String getCourseName() {
         return course_name;
     }
+
     public void setCourseName(String course_name) {
         this.course_name = course_name;
     }
+
     public School getSchool() {
         return school;
     }
+
     public void setSchool(School school) {
         this.school = school;
     }
+
     public void addStudent(Student student) {
         student.setCourse(this);
         students.add(student);
     }
+
     public List<Student> getStudents() {
         return students;
     }

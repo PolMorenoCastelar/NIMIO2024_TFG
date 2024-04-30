@@ -10,6 +10,10 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CourseService;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.ScheduleService;
 import org.springframework.stereotype.Controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 @Controller
 public class ScheduleController {
 
@@ -48,5 +52,17 @@ public class ScheduleController {
 
     public Schedule getScheduleById(Long scheduleId) {
         return scheduleService.getScheduleById(scheduleId);
+    }
+
+    public List<Schedule> getScheduleByCourse(Long courseId) {
+        List<Schedule> allSchedule = scheduleService.findAllSchedule();
+        List<Schedule> courseSchedule = new ArrayList<Schedule>();
+        for(Schedule schedule : allSchedule) {
+            if(schedule.getCourse() == courseService.getCourseById(courseId)) {
+                courseSchedule.add(schedule);
+                System.out.println(schedule);
+            }
+        }
+        return courseSchedule;
     }
 }

@@ -6,6 +6,8 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers.ScheduleControl
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Schedule;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/schedule")
 public class ScheduleRestController {
@@ -22,7 +24,12 @@ public class ScheduleRestController {
     }
 
     @GetMapping("/{scheduleId}")
-    public Schedule getSchedule(@PathVariable Long scheduleId){
+    public Schedule getSchedule(@PathVariable Long scheduleId) {
         return scheduleController.getScheduleById(scheduleId);
+    }
+
+    @GetMapping ("/course/{courseId}")
+    public List<Schedule> getScheduleByCourse(@PathVariable Long courseId){
+        return scheduleController.getScheduleByCourse(courseId);
     }
 }
