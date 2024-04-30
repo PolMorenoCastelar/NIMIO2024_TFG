@@ -30,11 +30,6 @@ public class StudentRestController {
         return studentController.createStudent(studentDTO);
     }
 
-    @GetMapping("/course/{courseId}")
-    public List<Student> getStudentsByCourseId(@PathVariable Long courseId) throws CourseDoNotExistException {
-        return studentController.getStudentByCourseId(courseId);
-    }
-
     @GetMapping("")
     public List<Student> getAllStudents() {
         return studentController.getAllStudents();
@@ -43,6 +38,11 @@ public class StudentRestController {
     @PutMapping("/{studentId}")
     public Student updateStudent(@PathVariable Long studentId, @RequestBody StudentDTO studentDTO) throws StudentNotExistsException {
         return studentController.updateStudent(studentId, studentDTO);
+    }
+
+    @GetMapping("/course/{courseId}")
+    public List<Student> getStudentsByCourseId(@PathVariable Long courseId) throws CourseDoNotExistException {
+        return studentController.getStudentByCourseId(courseId);
     }
 
 
