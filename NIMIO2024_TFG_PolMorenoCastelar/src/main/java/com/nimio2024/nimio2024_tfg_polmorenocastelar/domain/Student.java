@@ -26,7 +26,6 @@ public class Student {
     @JsonBackReference
     private Course course;
 
-    //TODO : Falta lista de Courses
 
     //TODO : Falta lista de Parents y Auth
 

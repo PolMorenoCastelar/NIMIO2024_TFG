@@ -81,10 +81,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - [NPP-44] 》ST38F - Create a student associated with a course
 - [NPP-55] 》ST46F - Create a student without associated course
+- [NPP-45] 》ST39F - Update student by ID
 
     ## Student Exceptions
 
     - [NPP-64] 》Student Exceptions - Create all student exceptions
+    - 
 
     ## Student Extra Functionalities
 

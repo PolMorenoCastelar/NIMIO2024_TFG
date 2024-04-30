@@ -3,6 +3,7 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.StudentDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.CourseDoNotExistException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentAlreadyExistsException;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentNotExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Student;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.persistence.CourseRepository;
@@ -57,4 +58,14 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
+    public Student updateStudent(Long studentId, StudentDTO studentDTO) throws StudentNotExistsException {
+        Student student = studentService.getStudentById(studentId);
+        if(student == null){
+            throw new StudentNotExistsException("Student with ID: " + studentId + " does not exist");
+        }
+        student.setStudentDNI(studentDTO.getStudentDNI());
+        student.setStudentName(studentDTO.getStudentName());
+        student.setStudentSurname(studentDTO.getStudentSurname());
+        return studentService.saveStudent(student);
+    }
 }
