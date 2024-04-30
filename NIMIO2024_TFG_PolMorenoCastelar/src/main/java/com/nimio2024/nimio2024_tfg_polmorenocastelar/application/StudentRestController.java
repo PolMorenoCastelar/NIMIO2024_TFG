@@ -50,6 +50,10 @@ public class StudentRestController {
         return studentController.getStudentById(studentId);
     }
 
+    @DeleteMapping("/{studentId}")
+    public void deleteStudent(@PathVariable Long studentId) {
+        studentController.deleteStudent(studentId);
+    }
 
 
 

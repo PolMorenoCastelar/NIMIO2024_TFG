@@ -78,4 +78,7 @@ public class StudentController {
     }
 
 
+    public void deleteStudent(Long studentId) {
+        studentService.deleteStudent(studentId);
+    }
 }
