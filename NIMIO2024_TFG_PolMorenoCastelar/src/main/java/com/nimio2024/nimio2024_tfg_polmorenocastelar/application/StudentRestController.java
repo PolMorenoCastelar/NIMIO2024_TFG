@@ -45,6 +45,13 @@ public class StudentRestController {
         return studentController.getStudentByCourseId(courseId);
     }
 
+    @GetMapping("/{studentId}")
+    public Student getStudentById(@PathVariable Long studentId) throws StudentNotExistsException {
+        return studentController.getStudentById(studentId);
+    }
+
+
+
 
 
 }

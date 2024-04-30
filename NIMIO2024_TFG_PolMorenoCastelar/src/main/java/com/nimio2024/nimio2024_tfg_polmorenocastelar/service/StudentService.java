@@ -29,4 +29,6 @@ public class StudentService {
     public Student getStudentByDNI(String studentDNI) {
         return studentRepository.findStudentByDNI(studentDNI);
     }
+
+
 }

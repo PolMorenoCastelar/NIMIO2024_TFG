@@ -68,4 +68,14 @@ public class StudentController {
         student.setStudentSurname(studentDTO.getStudentSurname());
         return studentService.saveStudent(student);
     }
+
+    public Student getStudentById(Long studentId) throws StudentNotExistsException {
+        Student s = studentService.getStudentById(studentId);
+        if(s == null){
+            throw new StudentNotExistsException("Student with ID: " + studentId + " does not exist");
+        }
+        return s;
+    }
+
+
 }
