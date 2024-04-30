@@ -65,4 +65,16 @@ public class ScheduleController {
         }
         return courseSchedule;
     }
+
+    public List<Schedule> getScheduleByClass(Long classId) {
+        List<Schedule> allSchedule = scheduleService.findAllSchedule();
+        List<Schedule> classSchedule = new ArrayList<Schedule>();
+        for(Schedule schedule : allSchedule) {
+            if(schedule.getClassS() == classService.getClassById(classId)) {
+                classSchedule.add(schedule);
+                System.out.println(schedule);
+            }
+        }
+        return classSchedule;
+    }
 }

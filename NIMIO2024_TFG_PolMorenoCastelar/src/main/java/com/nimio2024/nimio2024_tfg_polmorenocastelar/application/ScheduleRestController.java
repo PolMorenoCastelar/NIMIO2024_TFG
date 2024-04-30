@@ -32,4 +32,9 @@ public class ScheduleRestController {
     public List<Schedule> getScheduleByCourse(@PathVariable Long courseId){
         return scheduleController.getScheduleByCourse(courseId);
     }
+
+    @GetMapping ("/class/{classId}")
+    public List<Schedule> getScheduleByClass(@PathVariable Long classId){
+        return scheduleController.getScheduleByClass(classId);
+    }
 }
