@@ -13,11 +13,6 @@ public class Collector {
     private Long collector_id;
 
     //StudentID y PersonID se sustituyen por student y person
-    @Column(name = "student_id")
-    private Long student_id;
-
-    @Column(name = "person_id")
-    private Long person_id;
 
     @Column(name = "collected_date")
     private String collected_date;
@@ -29,33 +24,20 @@ public class Collector {
     @JoinColumn(name = "student")
     private Student student;
 
+    @ManyToOne
+    @JoinColumn(name = "person")
+    private Person person;
+
     public Collector() {
     }
 
-    public Collector(Long student_id, Long person_id, String collected_date, String collected_time, Student student) {
-        this.student_id = student_id;
-        this.person_id = person_id;
+    public Collector(String collected_date, String collected_time, Student student, Person person) {
         this.collected_date = collected_date;
         this.collected_time = collected_time;
         this.student = student;
+        this.person = person;
     }
 
-
-    public Long getStudentId() {
-        return student_id;
-    }
-
-    public void setStudentId(Long student_id) {
-        this.student_id = student_id;
-    }
-
-    public Long getPersonId() {
-        return person_id;
-    }
-
-    public void setPersonId(Long person_id) {
-        this.person_id = person_id;
-    }
 
     public String getCollectedDate() {
         return collected_date;
@@ -75,6 +57,18 @@ public class Collector {
 
     public Student getStudent() {
         return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
 

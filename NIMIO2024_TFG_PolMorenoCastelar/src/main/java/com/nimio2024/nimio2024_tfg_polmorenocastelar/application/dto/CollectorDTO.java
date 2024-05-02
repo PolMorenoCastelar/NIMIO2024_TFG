@@ -16,35 +16,16 @@ public class CollectorDTO {
     public CollectorDTO() {
     }
 
-    public CollectorDTO(Long studentID, Long personID, String collectedDate, String collectedTime) {
-        this.studentID = studentID;
-        this.personID = personID;
+    public CollectorDTO(String collectedDate, String collectedTime) {
         this.collectedDate = collectedDate;
         this.collectedTime = collectedTime;
     }
 
     public CollectorDTO(Collector collector) {
-        this.studentID = collector.getStudentId();
-        this.personID = collector.getPersonId();
         this.collectedDate = collector.getCollectedDate();
         this.collectedTime = collector.getCollectedTime();
     }
 
-    public Long getStudentID() {
-        return studentID;
-    }
-
-    public void setStudentID(Long studentID) {
-        this.studentID = studentID;
-    }
-
-    public Long getPersonID() {
-        return personID;
-    }
-
-    public void setPersonID(Long personID) {
-        this.personID = personID;
-    }
 
     public String getCollectedDate() {
         return collectedDate;
