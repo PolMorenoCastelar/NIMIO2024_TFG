@@ -50,6 +50,12 @@ public class StudentRestController {
         return studentController.getStudentById(studentId);
     }
 
+    // @PutMapping("/{studentId}/auth/{personId}")
+    // public Student addPersonToStudent(@PathVariable Long studentId, @PathVariable Long personId) throws StudentNotExistsException {
+    //    return studentController.addPersonToStudent(studentId, personId);
+    //}
+
+
     @DeleteMapping("/{studentId}")
     public void deleteStudent(@PathVariable Long studentId) {
         studentController.deleteStudent(studentId);

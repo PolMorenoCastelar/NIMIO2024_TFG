@@ -38,6 +38,11 @@ public class Collector {
         this.person = person;
     }
 
+    public Collector(Student student, Person person) {
+        this.student = student;
+        this.person = person;
+    }
+
 
     public String getCollectedDate() {
         return collected_date;

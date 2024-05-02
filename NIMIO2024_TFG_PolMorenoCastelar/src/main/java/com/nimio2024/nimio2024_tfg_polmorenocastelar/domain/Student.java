@@ -86,4 +86,8 @@ public class Student {
         return collectorList;
     }
 
+    /*public void addPerson(Person person) {
+        Collector collector = new Collector(this, person);
+        collectorList.add(collector);
+    }*/
 }

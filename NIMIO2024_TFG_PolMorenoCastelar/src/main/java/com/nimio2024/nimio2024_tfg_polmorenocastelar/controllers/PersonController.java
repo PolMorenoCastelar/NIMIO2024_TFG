@@ -1,5 +1,7 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.PersonDTO;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Person;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.PersonService;
 import org.springframework.stereotype.Controller;
 
@@ -13,4 +15,8 @@ public class PersonController {
     }
 
 
+    public Person createPerson(PersonDTO personDTO) {
+        Person person = new Person(personDTO);
+        return personService.savePerson(person);
+    }
 }

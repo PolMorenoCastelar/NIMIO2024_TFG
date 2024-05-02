@@ -12,4 +12,11 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
+    public Person savePerson(Person person) {
+        return personRepository.save(person);
+    }
+
+    public Person getPersonById(Long personId) {
+        return personRepository.findById(personId).orElse(null);
+    }
 }

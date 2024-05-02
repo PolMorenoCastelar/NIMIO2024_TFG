@@ -1,5 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.PersonDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -34,6 +35,12 @@ public class Person {
         this.person_surname = person_surname;
         this.person_DNI = person_DNI;
         this.collectorList = collectorList;
+    }
+
+    public Person(PersonDTO personDTO) {
+        this.person_name = personDTO.getPersonName();
+        this.person_surname = personDTO.getPersonSurname();
+        this.person_DNI = personDTO.getPersonDNI();
     }
 
     public String getPersonName() {

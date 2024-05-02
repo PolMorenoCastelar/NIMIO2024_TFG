@@ -5,9 +5,11 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.Cour
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentAlreadyExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentNotExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Person;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Student;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.persistence.CourseRepository;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CourseService;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.PersonService;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.StudentService;
 import org.springframework.stereotype.Controller;
 
@@ -18,10 +20,13 @@ public class StudentController {
     StudentService studentService;
     CourseService courseService;
 
-    public StudentController(StudentService studentService, CourseService courseService) {
+    PersonService personService;
+
+    public StudentController(StudentService studentService, CourseService courseService, PersonService personService){
 
         this.studentService = studentService;
         this.courseService = courseService;
+        this.personService = personService;
     }
 
     public Student createStudent(StudentDTO studentDTO, Long courseId) throws StudentAlreadyExistsException, CourseDoNotExistException {
@@ -81,4 +86,16 @@ public class StudentController {
     public void deleteStudent(Long studentId) {
         studentService.deleteStudent(studentId);
     }
+
+   /* public Student addPersonToStudent(Long studentId, Long personId) throws StudentNotExistsException {
+        Student student = studentService.getStudentById(studentId);
+        if(student == null){
+            throw new StudentNotExistsException("Student with ID: " + studentId + " does not exist");
+        }
+       Person person = personService.getPersonById(personId);
+        //TODO control person exists
+
+        student.addPerson(person);
+        return studentService.saveStudent(student);
+    }*/
 }
