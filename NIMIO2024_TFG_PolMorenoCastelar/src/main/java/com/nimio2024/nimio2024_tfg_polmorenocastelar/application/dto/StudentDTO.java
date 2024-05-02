@@ -1,7 +1,11 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto;
 
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Collector;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Student;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentDTO {
 
@@ -11,7 +15,7 @@ public class StudentDTO {
 
     private Course course;
 
-    //TODO : Falta lista de Courses
+    private List<Collector> collectorList;
 
     //TODO : Falta lista de Parents y Auth
 
@@ -30,6 +34,7 @@ public class StudentDTO {
         this.studentSurname = student.getStudentSurname();
         this.studentDNI = student.getStudentDNI();
         this.course = student.getCourse();
+        this.collectorList = student.getCollectorList();
     }
 
     public String getStudentName() {
@@ -56,10 +61,14 @@ public class StudentDTO {
         this.studentDNI = studentDNI;
     }
 
-
     public Course getCourse() {
         return course;
     }
 
-
+    public List<Collector> getCollectorList() {
+        if(collectorList == null){
+            return new ArrayList<Collector>();
+        }
+        return collectorList;
+    }
 }

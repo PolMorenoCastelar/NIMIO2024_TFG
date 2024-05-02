@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.StudentDTO;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "student")
 public class Student {
@@ -26,24 +28,26 @@ public class Student {
     @JsonBackReference
     private Course course;
 
-
-    //TODO : Falta lista de Parents y Auth
+    @OneToMany(mappedBy = "student")
+    private List<Collector> collectorList;
 
 
     public Student() {
 
     }
-    public Student(String student_name, String student_surname, String student_DNI,Course course) {
+    public Student(String student_name, String student_surname, String student_DNI,Course course, List<Collector> collectorList) {
         this.student_name = student_name;
         this.student_surname = student_surname;
         this.student_DNI = student_DNI;
         this.course = course;
+        this.collectorList = collectorList;
     }
     public Student (StudentDTO studentDTO){
         this.student_name = studentDTO.getStudentName();
         this.student_surname = studentDTO.getStudentSurname();
         this.student_DNI = studentDTO.getStudentDNI();
         this.course = studentDTO.getCourse();
+        this.collectorList = studentDTO.getCollectorList();
     }
 
 
@@ -77,4 +81,9 @@ public class Student {
     public void setCourse(Course course) {
         this.course = course;
     }
+
+    public List<Collector> getCollectorList() {
+        return collectorList;
+    }
+
 }
