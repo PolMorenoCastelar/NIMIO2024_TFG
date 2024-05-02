@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.StudentDTO;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -86,8 +87,10 @@ public class Student {
         return collectorList;
     }
 
-    /*public void addPerson(Person person) {
-        Collector collector = new Collector(this, person);
-        collectorList.add(collector);
-    }*/
+    public void addCollector(Collector collector) {
+        if(this.collectorList == null)
+            this.collectorList = new ArrayList<>();
+
+        this.collectorList.add(collector);
+    }
 }

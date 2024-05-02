@@ -86,16 +86,4 @@ public class StudentController {
     public void deleteStudent(Long studentId) {
         studentService.deleteStudent(studentId);
     }
-
-   /* public Student addPersonToStudent(Long studentId, Long personId) throws StudentNotExistsException {
-        Student student = studentService.getStudentById(studentId);
-        if(student == null){
-            throw new StudentNotExistsException("Student with ID: " + studentId + " does not exist");
-        }
-       Person person = personService.getPersonById(personId);
-        //TODO control person exists
-
-        student.addPerson(person);
-        return studentService.saveStudent(student);
-    }*/
 }

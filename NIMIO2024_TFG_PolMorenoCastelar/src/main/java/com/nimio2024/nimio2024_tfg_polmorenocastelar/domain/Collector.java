@@ -1,5 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class Collector {
     private String collected_time;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "student")
     private Student student;
 
@@ -61,16 +63,14 @@ public class Collector {
     }
 
     public Student getStudent() {
-        return student;
-    }
+       return student;
+     }
 
     public void setStudent(Student student) {
         this.student = student;
     }
 
-    public Person getPerson() {
-        return person;
-    }
+   public Person getPerson() {return person;}
 
     public void setPerson(Person person) {
         this.person = person;

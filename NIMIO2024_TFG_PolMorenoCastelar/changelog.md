@@ -113,5 +113,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Person
 
-- [NPP-38] 》PE40F - Create Person 
+- [NPP-38] 》PE40F - Create Person
+
+### Collector
+
+- [NPP-46] 》ST40F - Create a collector instance by student and person and add authorized people to student 
 

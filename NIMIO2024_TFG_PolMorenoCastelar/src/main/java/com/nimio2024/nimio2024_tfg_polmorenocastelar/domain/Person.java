@@ -1,5 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.PersonDTO;
 import jakarta.persistence.*;
 
@@ -23,6 +24,7 @@ public class Person {
     private String person_DNI;
 
     @OneToMany(mappedBy = "person")
+    @JsonIgnore
     private List<Collector> collectorList;
 
 
