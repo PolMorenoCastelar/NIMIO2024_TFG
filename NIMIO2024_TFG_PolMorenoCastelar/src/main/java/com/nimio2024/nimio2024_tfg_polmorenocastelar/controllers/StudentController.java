@@ -4,10 +4,12 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.StudentDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.CourseDoNotExistException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentAlreadyExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentNotExistsException;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Collector;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Person;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Student;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.persistence.CourseRepository;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CollectorService;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.CourseService;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.PersonService;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.StudentService;
@@ -19,14 +21,16 @@ import java.util.List;
 public class StudentController {
     StudentService studentService;
     CourseService courseService;
-
     PersonService personService;
 
-    public StudentController(StudentService studentService, CourseService courseService, PersonService personService){
+    CollectorService collectorService;
+
+    public StudentController(StudentService studentService, CourseService courseService, PersonService personService, CollectorService collectorService){
 
         this.studentService = studentService;
         this.courseService = courseService;
         this.personService = personService;
+        this.collectorService = collectorService;
     }
 
     public Student createStudent(StudentDTO studentDTO, Long courseId) throws StudentAlreadyExistsException, CourseDoNotExistException {
@@ -86,4 +90,12 @@ public class StudentController {
     public void deleteStudent(Long studentId) {
         studentService.deleteStudent(studentId);
     }
+
+    public void deleteAuth(Long personId, Long studentId) {
+        Student student = studentService.getStudentById(studentId);
+        Person person = personService.getPersonById(personId);
+        collectorService.deleteCollectorByStudentAndPerson(student, person);
+    }
+
+
 }

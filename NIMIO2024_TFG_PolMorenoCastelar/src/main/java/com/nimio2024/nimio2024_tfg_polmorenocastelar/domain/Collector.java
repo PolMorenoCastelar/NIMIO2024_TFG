@@ -76,5 +76,4 @@ public class Collector {
         this.person = person;
     }
 
-
 }

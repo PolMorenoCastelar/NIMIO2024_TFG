@@ -93,4 +93,13 @@ public class Student {
 
         this.collectorList.add(collector);
     }
+
+    public void deleteAuth(Person person) {
+        for (Collector collector : collectorList) {
+            if (collector.getPerson().equals(person)) {
+                collectorList.remove(collector);
+                break;
+            }
+        }
+    }
 }

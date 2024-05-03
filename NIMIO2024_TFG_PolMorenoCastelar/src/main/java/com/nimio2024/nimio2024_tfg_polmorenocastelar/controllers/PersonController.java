@@ -19,4 +19,8 @@ public class PersonController {
         Person person = new Person(personDTO);
         return personService.savePerson(person);
     }
+
+    public void deletePerson(Long personId) {
+        personService.deletePerson(personId);
+    }
 }

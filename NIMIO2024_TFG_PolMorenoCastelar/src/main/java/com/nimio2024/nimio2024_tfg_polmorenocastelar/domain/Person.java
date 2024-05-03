@@ -75,4 +75,7 @@ public class Person {
     public void setCollectorList(List<Collector> collectorList) {
         this.collectorList = collectorList;
     }
+
+
+
 }
