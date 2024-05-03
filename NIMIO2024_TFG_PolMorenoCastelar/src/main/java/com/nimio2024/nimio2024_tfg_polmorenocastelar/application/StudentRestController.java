@@ -61,6 +61,7 @@ public class StudentRestController {
         studentController.deleteAuth(personId, studentId);
     }
 
+
     @DeleteMapping("/{studentId}")
     public void deleteStudent(@PathVariable Long studentId) {
         studentController.deleteStudent(studentId);

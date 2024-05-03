@@ -9,6 +9,8 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.PersonService;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.StudentService;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 @Controller
 public class CollectorController {
 
@@ -39,5 +41,10 @@ public class CollectorController {
         student.addCollector(collector);
 
         return studentService.saveStudent(student);
+    }
+
+    public List<Collector> getCollectorsPersonsByStudentId(Long studentId) {
+        Student student = studentService.getStudentById(studentId);
+        return student.getCollectorList();
     }
 }

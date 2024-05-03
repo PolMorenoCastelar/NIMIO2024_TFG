@@ -119,4 +119,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Collector
 
 - [NPP-46] 》ST40F - Create a collector instance by student and person and add authorized people to student 
+- [NPP-35] 》CO27F - Get Collectors from a student by studentID
 
