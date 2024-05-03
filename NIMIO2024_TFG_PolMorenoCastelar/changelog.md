@@ -85,12 +85,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-47] 》ST41F - Delete Auth without deleting the person
 - [NPP-48] 》ST42F - Get students by courseId
 - [NPP-49] 》ST43F - Get student by ID
+- [NPP-69] 》ST44F - Check if a person is authorized to collect a student by studentID and personID
 - [NPP-54] 》ST48F - Delete a student by ID
 
     ## Student Exceptions
 
     - [NPP-64] 》Student Exceptions - Create all student exceptions
-    - 
 
     ## Student Extra Functionalities
 

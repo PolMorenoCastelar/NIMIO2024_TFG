@@ -98,4 +98,15 @@ public class StudentController {
     }
 
 
+    public boolean checkAuth(Long personId, Long studentId) {
+        Student student = studentService.getStudentById(studentId);
+        Person person = personService.getPersonById(personId);
+        List<Collector> collectorList = student.getCollectorList();
+        for(Collector c : collectorList){
+            if(c.getPerson().equals(person)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

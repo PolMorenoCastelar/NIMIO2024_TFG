@@ -50,6 +50,12 @@ public class StudentRestController {
         return studentController.getStudentById(studentId);
     }
 
+    @GetMapping("/auth/{studentId}/{personId}")
+    public boolean getAuth(@PathVariable Long personId, @PathVariable Long studentId) {
+        return studentController.checkAuth(personId, studentId);
+    }
+
+
     @PutMapping("/deleteAuth/{studentId}/{personId}")
     public void deleteAuth(@PathVariable Long personId, @PathVariable Long studentId) {
         studentController.deleteAuth(personId, studentId);
