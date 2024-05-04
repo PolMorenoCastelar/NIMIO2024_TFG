@@ -1,6 +1,7 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.ScheduleDTO;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.ClassDoNotExistException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.CourseDoNotExistException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.ClassS;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Course;
@@ -28,15 +29,14 @@ public class ScheduleController {
     }
 
 
-    public Schedule createSchedule(Long courseId, Long classId, ScheduleDTO scheduleDTO) throws CourseDoNotExistException {
+    public Schedule createSchedule(Long courseId, Long classId, ScheduleDTO scheduleDTO) throws CourseDoNotExistException, ClassDoNotExistException {
         Course course = courseService.getCourseById(courseId);
         if(course == null) {
             throw new CourseDoNotExistException("Course with id " + courseId + " do not exist");
         }
         ClassS classS = classService.getClassById(classId);
         if(classS == null) {
-            return null;
-            //TODO create exception
+            throw new ClassDoNotExistException("Class with id " + classId + " do not exist");
         }
         Schedule schedule = new Schedule(scheduleDTO);
 

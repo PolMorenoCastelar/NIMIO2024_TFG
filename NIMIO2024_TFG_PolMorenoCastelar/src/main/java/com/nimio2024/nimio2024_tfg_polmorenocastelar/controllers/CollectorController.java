@@ -1,5 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.PersonNotExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentNotExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Collector;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Person;
@@ -26,14 +27,16 @@ public class CollectorController {
         this.studentService = studentService;
     }
 
-    public Student addPersonToStudent(Long studentId, Long personId) throws StudentNotExistsException {
+    public Student addPersonToStudent(Long studentId, Long personId) throws StudentNotExistsException, PersonNotExistsException {
         Student student = studentService.getStudentById(studentId);
         if(student == null){
             throw new StudentNotExistsException("Student with ID: " + studentId + " does not exist");
         }
 
         Person person = personService.getPersonById(personId);
-       //TODO Exception if person do not exist
+        if(person == null){
+            throw new PersonNotExistsException("Person with ID: " + personId + " does not exist");
+        }
 
         Collector collector = new Collector(student , person);
         collectorService.saveCollector(collector);

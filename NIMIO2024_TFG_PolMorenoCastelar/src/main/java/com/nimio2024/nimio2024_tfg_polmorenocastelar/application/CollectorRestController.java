@@ -1,5 +1,6 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.application;
 
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.PersonNotExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentNotExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers.CollectorController;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Collector;
@@ -20,7 +21,7 @@ public class CollectorRestController {
     }
 
     @PutMapping("/{studentId}/auth/{personId}")
-    public Student addPersonToStudent(@PathVariable Long studentId, @PathVariable Long personId) throws StudentNotExistsException {
+    public Student addPersonToStudent(@PathVariable Long studentId, @PathVariable Long personId) throws StudentNotExistsException, PersonNotExistsException {
         return collectorController.addPersonToStudent(studentId, personId);
     }
 

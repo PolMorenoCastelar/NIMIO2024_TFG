@@ -103,6 +103,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-32] 》CL24F - Create classes 
 - [NPP-33] 》CL25F - Get class by classID
 
+    ## Class Exceptions
+
+    - [NPP-71] 》Class Exceptions - Create all class exceptions
+
 ### Schedule
 
 - [NPP-31] 》SC23F - Get schedule by classId

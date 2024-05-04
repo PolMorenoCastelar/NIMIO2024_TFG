@@ -17,8 +17,6 @@ public class StudentDTO {
 
     private List<Collector> collectorList;
 
-    //TODO : Falta lista de Parents y Auth
-
     public StudentDTO(){
 
     }

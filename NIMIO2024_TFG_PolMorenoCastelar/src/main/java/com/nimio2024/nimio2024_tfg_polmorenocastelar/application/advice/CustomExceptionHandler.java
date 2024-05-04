@@ -85,6 +85,22 @@ public class CustomExceptionHandler {
         return map;
     }
 
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(PersonNotExistsException.class)
+    public Map<String, String> handlePersonNotExistsException(PersonNotExistsException exception) {
+        Map<String, String> map =  new HashMap<>();
+        map.put("Person ERROR", exception.getMessage());
+        return map;
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(ClassDoNotExistException.class)
+    public Map<String, String> handleClassDoNotExistException(ClassDoNotExistException exception) {
+        Map<String, String> map =  new HashMap<>();
+        map.put("Class ERROR", exception.getMessage());
+        return map;
+    }
+
 
 
 

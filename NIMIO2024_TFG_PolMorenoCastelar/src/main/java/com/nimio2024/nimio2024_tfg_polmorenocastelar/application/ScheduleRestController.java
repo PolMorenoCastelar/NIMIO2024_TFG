@@ -1,6 +1,7 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.application;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.ScheduleDTO;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.ClassDoNotExistException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.CourseDoNotExistException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers.ScheduleController;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Schedule;
@@ -19,7 +20,7 @@ public class ScheduleRestController {
     }
 
     @PostMapping("/{courseId}/{classId}")
-    public Schedule createSchedule(@PathVariable Long courseId, @PathVariable Long classId, @RequestBody ScheduleDTO scheduleDTO) throws CourseDoNotExistException {
+    public Schedule createSchedule(@PathVariable Long courseId, @PathVariable Long classId, @RequestBody ScheduleDTO scheduleDTO) throws CourseDoNotExistException, ClassDoNotExistException {
         return scheduleController.createSchedule(courseId, classId, scheduleDTO);
     }
 
