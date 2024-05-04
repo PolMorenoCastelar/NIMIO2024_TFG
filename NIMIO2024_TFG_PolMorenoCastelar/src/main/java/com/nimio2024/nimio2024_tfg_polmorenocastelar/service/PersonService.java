@@ -20,6 +20,10 @@ public class PersonService {
         return personRepository.findById(personId).orElse(null);
     }
 
+    public Person getPersonByDni(String dni) {
+        return personRepository.findByDni(dni);
+    }
+
     public void deletePerson(Long personId) {
         personRepository.deleteById(personId);
     }

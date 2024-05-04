@@ -94,6 +94,14 @@ public class CustomExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(PersonAlreadyExistsException.class)
+    public Map<String, String> handlePersonAlreadyExistsException(PersonAlreadyExistsException exception) {
+        Map<String, String> map =  new HashMap<>();
+        map.put("Person ERROR", exception.getMessage());
+        return map;
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(ClassDoNotExistException.class)
     public Map<String, String> handleClassDoNotExistException(ClassDoNotExistException exception) {
         Map<String, String> map =  new HashMap<>();

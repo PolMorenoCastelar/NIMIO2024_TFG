@@ -1,6 +1,7 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.PersonDTO;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.PersonAlreadyExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Person;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.service.PersonService;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,11 @@ public class PersonController {
     }
 
 
-    public Person createPerson(PersonDTO personDTO) {
+    public Person createPerson(PersonDTO personDTO) throws PersonAlreadyExistsException {
+        if(personService.getPersonByDni(personDTO.getPersonDNI()) != null) {
+            throw new PersonAlreadyExistsException("Person with DNI " + personDTO.getPersonDNI() + " already exists");
+        }
+
         Person person = new Person(personDTO);
         return personService.savePerson(person);
     }

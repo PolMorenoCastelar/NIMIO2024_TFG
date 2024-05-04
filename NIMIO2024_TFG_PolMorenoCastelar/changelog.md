@@ -120,6 +120,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - [NPP-38] 》PE40F - Create Person
 
+    ## Person Exceptions
+
+    - [NPP-72] 》Person Exceptions - Create all person exceptions
+
 ### Collector
 
 - [NPP-46] 》ST40F - Create a collector instance by student and person and add authorized people to student 

@@ -1,6 +1,7 @@
 package com.nimio2024.nimio2024_tfg_polmorenocastelar.application;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.PersonDTO;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.PersonAlreadyExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers.PersonController;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Person;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class PersonRestController {
     }
 
     @PostMapping("")
-    public Person createPerson(@RequestBody PersonDTO personDTO) {
+    public Person createPerson(@RequestBody PersonDTO personDTO) throws PersonAlreadyExistsException {
         return personController.createPerson(personDTO);
     }
 
