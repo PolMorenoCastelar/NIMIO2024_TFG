@@ -2,6 +2,7 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.application;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.StudentDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.CourseDoNotExistException;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.PersonNotExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentAlreadyExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentNotExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers.StudentController;
@@ -51,7 +52,7 @@ public class StudentRestController {
     }
 
     @GetMapping("/auth/{studentId}/{personId}")
-    public boolean getAuth(@PathVariable Long personId, @PathVariable Long studentId) {
+    public boolean getAuth(@PathVariable Long personId, @PathVariable Long studentId) throws PersonNotExistsException, StudentNotExistsException {
         return studentController.checkAuth(personId, studentId);
     }
 

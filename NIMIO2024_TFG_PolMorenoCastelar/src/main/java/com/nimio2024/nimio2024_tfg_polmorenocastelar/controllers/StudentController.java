@@ -2,6 +2,7 @@ package com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers;
 
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.StudentDTO;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.CourseDoNotExistException;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.PersonNotExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentAlreadyExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.StudentNotExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Collector;
@@ -98,9 +99,15 @@ public class StudentController {
     }
 
 
-    public boolean checkAuth(Long personId, Long studentId) {
+    public boolean checkAuth(Long personId, Long studentId) throws StudentNotExistsException, PersonNotExistsException {
         Student student = studentService.getStudentById(studentId);
+        if(student == null){
+            throw new StudentNotExistsException("Student with ID: " + studentId + " does not exist");
+        }
         Person person = personService.getPersonById(personId);
+        if(person == null){
+            throw new PersonNotExistsException("Person with ID: " + personId + " does not exist");
+        }
         List<Collector> collectorList = student.getCollectorList();
         for(Collector c : collectorList){
             if(c.getPerson().equals(person)){
