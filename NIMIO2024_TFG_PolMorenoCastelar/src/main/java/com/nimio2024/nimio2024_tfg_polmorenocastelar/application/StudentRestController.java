@@ -56,6 +56,12 @@ public class StudentRestController {
         return studentController.checkAuth(personId, studentId);
     }
 
+    @GetMapping("/authByDni/{studentDNI}/{personDNI}")
+    public boolean getAuthByDni(@PathVariable String personDNI, @PathVariable String studentDNI) throws PersonNotExistsException, StudentNotExistsException {
+        return studentController.checkAuthByDni(personDNI, studentDNI);
+    }
+
+
 
     @PutMapping("/deleteAuth/{studentId}/{personId}")
     public void deleteAuth(@PathVariable Long personId, @PathVariable Long studentId) {

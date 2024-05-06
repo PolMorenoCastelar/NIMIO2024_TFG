@@ -94,8 +94,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
     ## Student Extra Functionalities
 
-    - [NPP-58] 》EX49 - Add students to a course by DNI and courseID
-    - [NPP-59] 》EX50 - Migrate only students from a course to another course by coursesIDS
+    - [NPP-58] 》EX49F - Add students to a course by DNI and courseID
+    - [NPP-59] 》EX50F - Migrate only students from a course to another course by coursesIDS
+    - [NPP-70] 》EX55F - Check if a person is authorized to collect a student by studentDni and personDni
 
 
 ### ClassS

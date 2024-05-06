@@ -116,4 +116,22 @@ public class StudentController {
         }
         return false;
     }
+
+    public boolean checkAuthByDni(String personDNI, String studentDNI) throws StudentNotExistsException, PersonNotExistsException {
+        Student student = studentService.getStudentByDNI(studentDNI);
+        if(student == null){
+            throw new StudentNotExistsException("Student with ID: " + studentDNI + " does not exist");
+        }
+        Person person = personService.getPersonByDni(personDNI);
+        if(person == null){
+            throw new PersonNotExistsException("Person with ID: " + personDNI + " does not exist");
+        }
+        List<Collector> collectorList = student.getCollectorList();
+        for(Collector c : collectorList){
+            if(c.getPerson().equals(person)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
