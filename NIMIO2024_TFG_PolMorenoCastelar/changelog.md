@@ -119,7 +119,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Person
 
-- [NPP-38] 》PE40F - Create Person
+- [NPP-38] 》PE30F - Create Person
+- [NPP-41] 》PE33F - Update Person by ID
 
     ## Person Exceptions
 

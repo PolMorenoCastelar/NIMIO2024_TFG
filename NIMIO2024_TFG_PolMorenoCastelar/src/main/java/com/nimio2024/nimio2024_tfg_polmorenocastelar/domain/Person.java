@@ -23,6 +23,9 @@ public class Person {
     @Column(name = "person_DNI")
     private String person_DNI;
 
+    @Column(name = "parent")
+    private boolean parent;
+
     @OneToMany(mappedBy = "person")
     @JsonIgnore
     private List<Collector> collectorList;
@@ -32,17 +35,19 @@ public class Person {
 
     }
 
-    public Person(String person_name, String person_surname, String person_DNI, List<Collector> collectorList) {
+    public Person(String person_name, String person_surname, String person_DNI, List<Collector> collectorList, boolean parent) {
         this.person_name = person_name;
         this.person_surname = person_surname;
         this.person_DNI = person_DNI;
         this.collectorList = collectorList;
+        this.parent = parent;
     }
 
     public Person(PersonDTO personDTO) {
         this.person_name = personDTO.getPersonName();
         this.person_surname = personDTO.getPersonSurname();
         this.person_DNI = personDTO.getPersonDNI();
+        this.parent = personDTO.isParent();
     }
 
     public String getPersonName() {
@@ -77,5 +82,11 @@ public class Person {
     }
 
 
+    public boolean isParent() {
+        return parent;
+    }
 
+    public void setParent(boolean parent) {
+        this.parent = parent;
+    }
 }

@@ -10,6 +10,8 @@ public class PersonDTO {
 
     private String personDNI;
 
+    private boolean parent;
+
     public PersonDTO() {
     }
 
@@ -17,12 +19,14 @@ public class PersonDTO {
         this.personName = personName;
         this.personSurname = personSurname;
         this.personDNI = personDNI;
+        this.parent = false;
     }
 
     public PersonDTO( Person person){
         this.personName = person.getPersonName();
         this.personSurname = person.getPersonSurname();
         this.personDNI = person.getPersonDNI();
+        this.parent = person.isParent();
     }
 
     public String getPersonName() {
@@ -47,5 +51,9 @@ public class PersonDTO {
 
     public void setPersonDNI(String personDNI) {
         this.personDNI = personDNI;
+    }
+
+    public boolean isParent() {
+        return parent;
     }
 }
