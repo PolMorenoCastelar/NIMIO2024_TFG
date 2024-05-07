@@ -25,6 +25,11 @@ public class PersonRestController {
         return personController.createPerson(personDTO);
     }
 
+    @PostMapping("/parent")
+    public Person createParentPerson(@RequestBody PersonDTO personDTO) throws PersonAlreadyExistsException {
+        return personController.createParentPerson(personDTO);
+    }
+
     @PutMapping("/{personId}")
     public Person updatePerson(@PathVariable Long personId, @RequestBody PersonDTO personDTO) throws PersonNotExistsException {
         return personController.updatePerson(personId, personDTO);

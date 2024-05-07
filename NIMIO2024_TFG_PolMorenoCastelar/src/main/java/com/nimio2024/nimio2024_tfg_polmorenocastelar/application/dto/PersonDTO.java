@@ -56,4 +56,8 @@ public class PersonDTO {
     public boolean isParent() {
         return parent;
     }
+
+    public void setParent(boolean b) {
+        this.parent = b;
+    }
 }

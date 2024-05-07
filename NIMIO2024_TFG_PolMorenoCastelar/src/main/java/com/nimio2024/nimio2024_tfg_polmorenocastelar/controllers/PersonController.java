@@ -31,6 +31,15 @@ public class PersonController {
         return personService.savePerson(person);
     }
 
+    public Person createParentPerson(PersonDTO personDTO) throws PersonAlreadyExistsException {
+        if (personService.getPersonByDni(personDTO.getPersonDNI()) != null) {
+            throw new PersonAlreadyExistsException("Person with DNI " + personDTO.getPersonDNI() + " already exists");
+        }
+        personDTO.setParent(true);
+        Person person = new Person(personDTO);
+        return personService.savePerson(person);
+    }
+
     public void deletePerson(Long personId) {
         personService.deletePerson(personId);
     }
