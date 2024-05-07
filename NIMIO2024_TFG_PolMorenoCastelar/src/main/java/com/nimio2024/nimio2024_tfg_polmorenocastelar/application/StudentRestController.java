@@ -36,10 +36,6 @@ public class StudentRestController {
         return studentController.getAllStudents();
     }
 
-    @PutMapping("/{studentId}")
-    public Student updateStudent(@PathVariable Long studentId, @RequestBody StudentDTO studentDTO) throws StudentNotExistsException {
-        return studentController.updateStudent(studentId, studentDTO);
-    }
 
     @GetMapping("/course/{courseId}")
     public List<Student> getStudentsByCourseId(@PathVariable Long courseId) throws CourseDoNotExistException {
@@ -62,12 +58,15 @@ public class StudentRestController {
     }
 
 
-
     @PutMapping("/deleteAuth/{studentId}/{personId}")
     public void deleteAuth(@PathVariable Long personId, @PathVariable Long studentId) {
         studentController.deleteAuth(personId, studentId);
     }
 
+    @PutMapping("/{studentId}")
+    public Student updateStudent(@PathVariable Long studentId, @RequestBody StudentDTO studentDTO) throws StudentNotExistsException {
+        return studentController.updateStudent(studentId, studentDTO);
+    }
 
     @DeleteMapping("/{studentId}")
     public void deleteStudent(@PathVariable Long studentId) {

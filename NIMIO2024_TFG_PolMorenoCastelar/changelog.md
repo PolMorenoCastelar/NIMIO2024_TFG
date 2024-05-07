@@ -121,6 +121,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - [NPP-38] 》PE30F - Create Person
 - [NPP-41] 》PE33F - Update Person by ID
+- [NPP-36] 》CO28F - Get auth students from a person by personID
 
     ## Person Exceptions
 

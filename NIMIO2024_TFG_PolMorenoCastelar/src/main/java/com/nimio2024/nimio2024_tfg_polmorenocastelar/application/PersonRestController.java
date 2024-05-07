@@ -5,7 +5,10 @@ import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.Pers
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.PersonNotExistsException;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.controllers.PersonController;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Person;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.domain.Student;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/persons")
@@ -25,6 +28,11 @@ public class PersonRestController {
     @PutMapping("/{personId}")
     public Person updatePerson(@PathVariable Long personId, @RequestBody PersonDTO personDTO) throws PersonNotExistsException {
         return personController.updatePerson(personId, personDTO);
+    }
+
+    @GetMapping("/auth/{personId}")
+    public List<Student> getAuth(@PathVariable Long personId) throws PersonNotExistsException {
+        return personController.getAuth(personId);
     }
 
     @DeleteMapping("/{personId}")
