@@ -109,6 +109,14 @@ public class CustomExceptionHandler {
         return map;
     }
 
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(ScheduleAlreadyTakenException.class)
+    public Map<String, String> handleScheduleAlreadyTakenException(ScheduleAlreadyTakenException exception) {
+        Map<String, String> map =  new HashMap<>();
+        map.put("Schedule ERROR", exception.getMessage());
+        return map;
+    }
+
 
 
 

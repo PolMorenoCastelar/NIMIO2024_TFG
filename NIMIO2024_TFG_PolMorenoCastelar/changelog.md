@@ -116,6 +116,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     
     - [NPP-68] 》EX54F - Get all schedules for a course by courseID
     - [NPP-67] 》EX53F - Get all schedules for a class by classID
+    - [NPP-66] 》EX52F - Post a schedule for a course in a class taking into account the time
 
 ### Person
 

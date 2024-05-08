@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.dto.ClassDTO;
+import com.nimio2024.nimio2024_tfg_polmorenocastelar.application.exceptions.ScheduleAlreadyTakenException;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -76,5 +77,15 @@ public class ClassS {
     }
 
 
-
+    public void checkSchedule(Schedule schedule) throws ScheduleAlreadyTakenException {
+        double startHour = Double.parseDouble(schedule.getStartTimeClass());
+        double endHour = Double.parseDouble(schedule.getEndTimeClass());
+        for(Schedule s : this.schedule) {
+            double startHourS = Double.parseDouble(s.getStartTimeClass());
+            double endHourS = Double.parseDouble(s.getEndTimeClass());
+            if((startHour >= startHourS && startHour <= endHourS) || (endHour >= startHourS && endHour <= endHourS)) {
+                throw new ScheduleAlreadyTakenException("The schedule is already taken for this class, try another one ");
+            }
+        }
+    }
 }
