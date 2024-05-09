@@ -20,22 +20,22 @@ public class ScheduleRestController {
         this.scheduleController = scheduleController;
     }
 
-    @PostMapping("/{courseId}/{classId}")
+    @PostMapping("/{courseId}/{classId}") // EX52F
     public Schedule createSchedule(@PathVariable Long courseId, @PathVariable Long classId, @RequestBody ScheduleDTO scheduleDTO) throws CourseDoNotExistException, ClassDoNotExistException, ScheduleAlreadyTakenException {
         return scheduleController.createSchedule(courseId, classId, scheduleDTO);
     }
 
-    @GetMapping("/{scheduleId}")
+    @GetMapping("/{scheduleId}") // SC23F
     public Schedule getSchedule(@PathVariable Long scheduleId) {
         return scheduleController.getScheduleById(scheduleId);
     }
 
-    @GetMapping ("/course/{courseId}")
+    @GetMapping ("/course/{courseId}") // EX54F
     public List<Schedule> getScheduleByCourse(@PathVariable Long courseId){
         return scheduleController.getScheduleByCourse(courseId);
     }
 
-    @GetMapping ("/class/{classId}")
+    @GetMapping ("/class/{classId}") // EX53F
     public List<Schedule> getScheduleByClass(@PathVariable Long classId){
         return scheduleController.getScheduleByClass(classId);
     }
