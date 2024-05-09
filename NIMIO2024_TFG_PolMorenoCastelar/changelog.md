@@ -76,6 +76,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     ## Teacher Extra Functionalities
 
     - [NPP-60] 》EX51 - Get all teachers from school by schoolID
+    - [NPP-75] 》EX56F - Add Teacher to a course
 
 ### Student
 

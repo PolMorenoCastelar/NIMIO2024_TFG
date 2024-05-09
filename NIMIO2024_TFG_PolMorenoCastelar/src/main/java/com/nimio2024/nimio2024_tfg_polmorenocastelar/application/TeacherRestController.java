@@ -29,7 +29,7 @@ public class TeacherRestController {
     public Teacher updateTeacher(@PathVariable Long teacherId, @RequestBody TeacherDTO teacherDTO) throws TeacherDoNotExistException {
         return teacherController.updateTeacher(teacherId, teacherDTO);
     }
-    @PutMapping("/{teacherId}/addCourse/{courseId}") // TE20F
+    @PutMapping("/{teacherId}/addCourse/{courseId}") // EX56F
     public Teacher addCourseToTeacher(@PathVariable Long teacherId, @PathVariable Long courseId) throws CourseDoNotExistException, TeacherDoNotExistException {
         return teacherController.addCourseToTeacher(teacherId, courseId);
     }
