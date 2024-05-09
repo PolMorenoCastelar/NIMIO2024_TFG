@@ -88,6 +88,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [NPP-49] 》ST43F - Get student by ID
 - [NPP-69] 》ST44F - Check if a person is authorized to collect a student by studentID and personID
 - [NPP-54] 》ST48F - Delete a student by ID
+- [NPP-37] 》CO29F - Check if a student is authorized to be collected by a person by studentID and personID
 
     ## Student Exceptions
 

@@ -47,7 +47,7 @@ public class StudentRestController {
         return studentController.getStudentById(studentId);
     }
 
-    @GetMapping("/auth/{studentId}/{personId}")
+    @GetMapping("/auth/{studentId}/{personId}") // CO29F
     public boolean getAuth(@PathVariable Long personId, @PathVariable Long studentId) throws PersonNotExistsException, StudentNotExistsException {
         return studentController.checkAuth(personId, studentId);
     }
