@@ -15,17 +15,17 @@ public class ClassRestController {
         this.classController = classController;
     }
 
-    @PostMapping("/")
+    @PostMapping("/") // CL24F
     public ClassS createClass(@RequestBody ClassDTO classDTO){
             return classController.createClass(classDTO);
     }
 
-    @GetMapping("/{classId}")
+    @GetMapping("/{classId}") // CL25F
     public ClassS getClass(@PathVariable Long classId){
         return classController.getClassById(classId);
     }
 
-    @DeleteMapping("/{classId}")
+    @DeleteMapping("/{classId}") // CL26F
     public void deleteClass(@PathVariable Long classId){
         classController.deleteClass(classId);
     }
