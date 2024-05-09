@@ -20,36 +20,37 @@ public class SchoolRestController {
 
     public SchoolRestController(SchoolController schoolController) {this.schoolController = schoolController;}
 
-    @PostMapping("/{centerId}")
+    @PostMapping("/{centerId}") // SC6F
     public School createSchool(@RequestBody SchoolDTO schoolDTO, @PathVariable Long centerId) throws CenterDoNotExistException, SchoolAlreadyExistsException {
        return schoolController.createSchool(schoolDTO, centerId);
     }
-    @GetMapping("/{schoolId}")
-    public School getSchool(@PathVariable Long schoolId) throws SchoolDoNotExistException {
-        return schoolController.getSchool(schoolId);
-    }
-    @GetMapping("/{schoolId}/courses")
-    public List<Course> getSchoolCourses(@PathVariable Long schoolId) throws SchoolDoNotExistException {
-        return schoolController.getSchoolCourses(schoolId);
-    }
-    @PutMapping("/{schoolId}")
+    @PutMapping("/{schoolId}") // SC9F
     public School updateSchool(@PathVariable Long schoolId, @RequestBody SchoolDTO schoolDTO) throws SchoolDoNotExistException {
         return schoolController.updateSchool(schoolId, schoolDTO);
     }
-    @PutMapping("/{schoolId}/schoolName")
+    @PutMapping("/{schoolId}/schoolName") // EX48F
     public School updateSchoolName(@PathVariable Long schoolId, @RequestBody String schoolName) throws SchoolDoNotExistException {
         return schoolController.updateSchoolName(schoolId, schoolName);
     }
-    @DeleteMapping("/{schoolId}")
-    public void deleteSchool(@PathVariable Long schoolId){
-        schoolController.deleteSchool(schoolId);
+    @GetMapping("/{schoolId}") // SC7F
+    public School getSchool(@PathVariable Long schoolId) throws SchoolDoNotExistException {
+        return schoolController.getSchool(schoolId);
     }
-    @GetMapping("/centerName/{schoolId}")
+    @GetMapping("/{schoolId}/courses") // SC8F
+    public List<Course> getSchoolCourses(@PathVariable Long schoolId) throws SchoolDoNotExistException {
+        return schoolController.getSchoolCourses(schoolId);
+    }
+    @GetMapping("/centerName/{schoolId}") // EX47F
     public String getCenterNameBySchoolId(@PathVariable Long schoolId) throws SchoolDoNotExistException {
         return schoolController.getCenterNameBySchoolId(schoolId);
     }
-    @GetMapping("/teachersFromSchool/{schoolId}")
+    @GetMapping("/teachersFromSchool/{schoolId}") // EX51F
     public List<Teacher> getTeachersFromSchool(@PathVariable Long schoolId) throws SchoolDoNotExistException {
         return schoolController.getTeachersFromSchool(schoolId);
     }
+    @DeleteMapping("/{schoolId}") // SC10F
+    public void deleteSchool(@PathVariable Long schoolId){
+        schoolController.deleteSchool(schoolId);
+    }
+
 }
