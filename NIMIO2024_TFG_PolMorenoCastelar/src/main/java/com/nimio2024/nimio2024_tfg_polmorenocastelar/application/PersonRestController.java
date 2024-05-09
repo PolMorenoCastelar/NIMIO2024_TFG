@@ -35,7 +35,7 @@ public class PersonRestController {
         return personController.updatePerson(personId, personDTO);
     }
 
-    @GetMapping("/auth/{personId}")
+    @GetMapping("/auth/{personId}") // CO28F
     public List<Student> getAuth(@PathVariable Long personId) throws PersonNotExistsException {
         return personController.getAuth(personId);
     }

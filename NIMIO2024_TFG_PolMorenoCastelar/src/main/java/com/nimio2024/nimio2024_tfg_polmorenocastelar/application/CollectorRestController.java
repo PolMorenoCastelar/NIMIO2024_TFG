@@ -25,7 +25,7 @@ public class CollectorRestController {
         return collectorController.addPersonToStudent(studentId, personId);
     }
 
-    @GetMapping("/auth/{studentId}")
+    @GetMapping("/auth/{studentId}") // CO27F
     public List<Collector> getCollectorsPersons(@PathVariable Long studentId) {
         return collectorController.getCollectorsPersonsByStudentId(studentId);
     }
