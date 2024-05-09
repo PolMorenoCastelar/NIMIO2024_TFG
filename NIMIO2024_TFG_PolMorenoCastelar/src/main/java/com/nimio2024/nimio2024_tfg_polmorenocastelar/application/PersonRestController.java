@@ -20,27 +20,27 @@ public class PersonRestController {
         this.personController = personController;
     }
 
-    @PostMapping("")
+    @PostMapping("") // PE30F
     public Person createPerson(@RequestBody PersonDTO personDTO) throws PersonAlreadyExistsException {
         return personController.createPerson(personDTO);
     }
 
-    @PostMapping("/parent")
+    @PostMapping("/parent") // PE31F
     public Person createParentPerson(@RequestBody PersonDTO personDTO) throws PersonAlreadyExistsException {
         return personController.createParentPerson(personDTO);
     }
 
-    @PutMapping("/{personId}")
+    @PutMapping("/{personId}") // PE33F
     public Person updatePerson(@PathVariable Long personId, @RequestBody PersonDTO personDTO) throws PersonNotExistsException {
         return personController.updatePerson(personId, personDTO);
     }
 
-    @GetMapping("/auth/{personId}") // CO28F
+    @GetMapping("/auth/{personId}") // CO28F & PE34F
     public List<Student> getAuth(@PathVariable Long personId) throws PersonNotExistsException {
         return personController.getAuth(personId);
     }
 
-    @DeleteMapping("/{personId}")
+    @DeleteMapping("/{personId}") // PE37F
     public void deletePerson(@PathVariable Long personId) {
         personController.deletePerson(personId);
     }
