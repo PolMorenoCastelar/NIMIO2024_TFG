@@ -20,7 +20,7 @@ public class CollectorRestController {
         this.collectorController = collectorController;
     }
 
-    @PutMapping("/{studentId}/auth/{personId}") // CO29F & ST44F
+    @PutMapping("/{studentId}/auth/{personId}") // CO29F & ST40F
     public Student addPersonToStudent(@PathVariable Long studentId, @PathVariable Long personId) throws StudentNotExistsException, PersonNotExistsException {
         return collectorController.addPersonToStudent(studentId, personId);
     }
