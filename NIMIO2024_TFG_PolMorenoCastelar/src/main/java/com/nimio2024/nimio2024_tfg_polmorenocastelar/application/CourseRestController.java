@@ -20,43 +20,41 @@ public class CourseRestController {
         this.courseController = courseController;
     }
 
-    @PostMapping("/{schoolId}")
+    @PostMapping("/{schoolId}") // CO11F
     public Course createCourse(@RequestBody CourseDTO courseDTO, @PathVariable Long schoolId) throws SchoolDoNotExistException {
         return courseController.createCourse(courseDTO, schoolId);
     }
 
-    @PutMapping("/{courseId}")
+    @PutMapping("/{courseId}") // CO12F
     public Course updateCourseName(@PathVariable Long courseId, @RequestBody CourseDTO courseDTO) throws CourseDoNotExistException {
         return courseController.updateCourseName(courseId, courseDTO);
     }
 
-    @PutMapping("/{courseId}/addStudent/{studentId}")
+    @PutMapping("/{courseId}/addStudent/{studentId}") // CO13F
     public Course addStudentToCourse(@PathVariable Long courseId, @PathVariable Long studentId) throws CourseDoNotExistException, StudentNotExistsException {
         return courseController.addStudentToCourse(courseId, studentId);
     }
 
-    @PutMapping ("/{courseId}/addStudentByDNI/{studentDNI}")
+    @PutMapping ("/{courseId}/addStudentByDNI/{studentDNI}") // EX49F
     public Course addStudentToCourseByDNI(@PathVariable Long courseId, @PathVariable String studentDNI) throws CourseDoNotExistException, StudentNotExistsException {
         return courseController.addStudentToCourseByDNI(courseId, studentDNI);
     }
 
-    @PutMapping("/{courseId}/addStudentList")
+    @PutMapping("/{courseId}/addStudentList") // CO14F
     public Course addStudentListToCourse(@PathVariable Long courseId, @RequestBody List<StudentDTO> studentListDTO) throws CourseDoNotExistException {
         return courseController.addStudentListToCourse(courseId, studentListDTO);
     }
 
-    @PutMapping("/{oldCourseId}/migrateToCourse/{newCourseId}")
+    @PutMapping("/{oldCourseId}/migrateToCourse/{newCourseId}") // EX50F
     public Course migrateStudentsToCourse(@PathVariable Long oldCourseId, @PathVariable Long newCourseId) throws CourseDoNotExistException {
         return courseController.migrateStudentsToCourse(oldCourseId, newCourseId);
     }
 
-    @GetMapping("/{courseId}")
+    @GetMapping("/{courseId}") // CO15F
     public Course getCourseById(@PathVariable Long courseId) throws CourseDoNotExistException {
         return courseController.getCourseById(courseId);
     }
-
-
-    @DeleteMapping("/{courseId}")
+    @DeleteMapping("/{courseId}") // CO17F
     public void deleteCourse(@PathVariable Long courseId){
         courseController.deleteCourse(courseId);
     }

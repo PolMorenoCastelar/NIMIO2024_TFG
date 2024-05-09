@@ -37,7 +37,7 @@ public class StudentRestController {
     }
 
 
-    @GetMapping("/course/{courseId}")
+    @GetMapping("/course/{courseId}") // CO16F
     public List<Student> getStudentsByCourseId(@PathVariable Long courseId) throws CourseDoNotExistException {
         return studentController.getStudentByCourseId(courseId);
     }
