@@ -21,46 +21,36 @@ public class TeacherRestController {
         this.teacherController = teacherController;
     }
 
-    @PostMapping("")
+    @PostMapping("") // TE18F
     public Teacher createTeacher(@RequestBody TeacherDTO teacherDTO) throws TeacherAlreadyExistsException {
         return teacherController.createTeacher(teacherDTO);
     }
-
-    @PutMapping("/{teacherId}")
+    @PutMapping("/{teacherId}") // TE19F
     public Teacher updateTeacher(@PathVariable Long teacherId, @RequestBody TeacherDTO teacherDTO) throws TeacherDoNotExistException {
         return teacherController.updateTeacher(teacherId, teacherDTO);
     }
-
+    @PutMapping("/{teacherId}/addCourse/{courseId}") // TE20F
+    public Teacher addCourseToTeacher(@PathVariable Long teacherId, @PathVariable Long courseId) throws CourseDoNotExistException, TeacherDoNotExistException {
+        return teacherController.addCourseToTeacher(teacherId, courseId);
+    }
+    @PutMapping("/{teacherIdOld}/replace/{teacherIdNew}") // TE20F
+    public Teacher replaceTeacher(@PathVariable Long teacherIdOld, @PathVariable Long teacherIdNew) throws TeacherDoNotExistException {
+        return teacherController.replaceTeacher(teacherIdOld, teacherIdNew);
+    }
     @GetMapping("/{teacherId}")
     public Teacher getTeacherById(@PathVariable Long teacherId) throws TeacherDoNotExistException {
         return teacherController.getTeacherById(teacherId);
     }
-
-    @GetMapping ("/courses/{teacherId}")
+    @GetMapping ("/courses/{teacherId}") // TE21F
     public List<Course> getTeacherCourses(@PathVariable Long teacherId) throws TeacherDoNotExistException {
         return teacherController.getTeacherCourses(teacherId);
     }
-
     @GetMapping("")
     public List<Teacher> getAllTeachers(){
         return teacherController.getAllTeachers();
     }
-
-    @PutMapping("/{teacherId}/addCourse/{courseId}")
-    public Teacher addCourseToTeacher(@PathVariable Long teacherId, @PathVariable Long courseId) throws CourseDoNotExistException, TeacherDoNotExistException {
-        return teacherController.addCourseToTeacher(teacherId, courseId);
-    }
-
-    @PutMapping("/{teacherIdOld}/replace/{teacherIdNew}")
-    public Teacher replaceTeacher(@PathVariable Long teacherIdOld, @PathVariable Long teacherIdNew) throws TeacherDoNotExistException {
-        return teacherController.replaceTeacher(teacherIdOld, teacherIdNew);
-    }
-
-    @DeleteMapping("/{teacherId}")
+    @DeleteMapping("/{teacherId}") // TE22F
     public void deleteTeacher(@PathVariable Long teacherId){
         teacherController.deleteTeacher(teacherId);
     }
-
-
-
 }
