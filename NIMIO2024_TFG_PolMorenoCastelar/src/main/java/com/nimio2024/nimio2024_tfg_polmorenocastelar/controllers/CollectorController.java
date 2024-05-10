@@ -46,8 +46,11 @@ public class CollectorController {
         return studentService.saveStudent(student);
     }
 
-    public List<Collector> getCollectorsPersonsByStudentId(Long studentId) {
+    public List<Collector> getCollectorsPersonsByStudentId(Long studentId) throws StudentNotExistsException {
         Student student = studentService.getStudentById(studentId);
+        if(student == null){
+            throw new StudentNotExistsException("Student with ID: " + studentId + " does not exist");
+        }
         return student.getCollectorList();
     }
 }
