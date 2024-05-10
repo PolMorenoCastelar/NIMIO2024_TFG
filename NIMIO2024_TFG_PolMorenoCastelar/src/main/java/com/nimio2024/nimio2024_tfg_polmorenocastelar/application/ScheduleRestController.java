@@ -39,4 +39,9 @@ public class ScheduleRestController {
     public List<Schedule> getScheduleByClass(@PathVariable Long classId){
         return scheduleController.getScheduleByClass(classId);
     }
+
+    @DeleteMapping("/{scheduleId}") //
+    public void deleteSchedule(@PathVariable Long scheduleId) {
+        scheduleController.deleteSchedule(scheduleId);
+    }
 }

@@ -79,4 +79,8 @@ public class ScheduleController {
         }
         return classSchedule;
     }
+
+    public void deleteSchedule(Long scheduleId) {
+        scheduleService.deleteSchedule(scheduleId);
+    }
 }
