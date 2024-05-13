@@ -13,8 +13,6 @@ public class Collector {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long collector_id;
 
-    //StudentID y PersonID se sustituyen por student y person
-
     @Column(name = "collected_date")
     private String collected_date;
 
